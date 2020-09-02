@@ -1,1 +1,8 @@
-# CS4360
+# ## CS 3710 - Technical Software Project
+>Dr. Steve Beaty  
+>Fall 2020  
+>Metropolitan State University of Denver  
+
+### Floor Coveraget
+> A web application for managers to generate schedules with an emphasis on allocating employee skills efficiently
+> Ruby on Rails
