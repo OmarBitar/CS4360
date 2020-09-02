@@ -3,6 +3,6 @@
 >Fall 2020  
 >Metropolitan State University of Denver  
 
-### Floor Coveraget
+### Floor Coverage
 > A web application for managers to generate schedules with an emphasis on allocating employee skills efficiently
 > Ruby on Rails
