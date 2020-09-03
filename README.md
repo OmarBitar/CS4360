@@ -6,3 +6,6 @@
 ### Floor Coverage
 > A web application for managers to generate schedules with an emphasis on allocating employee skills efficiently
 > Ruby on Rails
+
+Team:
+Nicole Weickert
