@@ -9,3 +9,4 @@
 
 Team:
 Nicole Weickert
+James Thomas
