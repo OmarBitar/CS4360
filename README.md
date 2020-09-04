@@ -10,3 +10,4 @@
 Team:
 Nicole Weickert
 James Thomas
+Victor Lazos-Aragon
