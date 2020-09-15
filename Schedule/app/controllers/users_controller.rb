@@ -1,3 +1,5 @@
+require "base64"
+require "digest"
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
 
@@ -24,8 +26,17 @@ class UsersController < ApplicationController
   # POST /users
   # POST /users.json
   def create
-    @user = User.new(user_params)
-
+    #only get the parameters we want.
+    params.slice :user
+    #don't need the temporaries, but makes code easer to read
+    username = params[:user][:username]
+    password = params[:user][:password]
+    hash = Digest::SHA256.digest password
+    #since the hash will probably not be a valid ascii string, encode it in base64 to ensure that the encoding will be valid. Checking of passwords remains the same when logging in.
+    safe_hash = Base64.encode64(hash)
+    @user = User.new
+    @user.username = username
+   @user.password = safe_hash
     respond_to do |format|
       if @user.save
         format.html { redirect_to @user, notice: 'User was successfully created.' }
