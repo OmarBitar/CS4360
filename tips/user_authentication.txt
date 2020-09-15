@@ -1,0 +1,22 @@
+An algorithm for implementing user authentication on web pages in ruby without storing plain-text passwords
+Model:
+In rails, whenever we want to store data in the database, we must generate a model; this is essentially ruby's view of the structure and contents of the database. To generate the model, run the following command:
+bin\rails generate model user name:string password:string
+This creates a table in the database called users with columns id (the primary key), name, and password (but we won't store the actual password, just the hash).
+Controller:
+When we want to associate an action with any page in our web app, we must create a controller. In particular, we should have the following actions for the sign-in page:
+1. display_options: this action should render a web page which, at a minimum, should have links to the create_account and sign_in actions.
+2. create_account: This action should render a page which, at a minimum, should display a form that allows a user to type in a username and a password. if the username is already taken, then display an error page. Otherwise, store the username and the hash of the password in the database; then display the success page.
+3. sign_in: this action should render a page which, at a minimum, displays a form in which a user can type in their username and password. To authenticate a user, use the following algorithm:
+a. Find the user who has the name provided in the form.
+b. If no such user exists, display the error page. Otherwise, go to step c.
+c. Compute the hash of the password provided in the form. If such hash is equal to the hash stored in the database for the user, then display the error page.
+4. error: this is the page that will be displayed if something goes wrong during sign-in (for example, no such user, wrong password, etc). At a minimum, it should have a message that says something like "your username or password was incorrect. please try again"; there should also be a link back to the original sign-in page so they can, in fact, try again.
+5. Success: this is a temporary link that will point to a page that will say something like "welcome to floor coverage!". This will later link to the coverage page that the other group is implementing once that is implemented.
+To generate the controller described above, use the command:
+bin\rails generate controller sign_in <action1> <action2> ... <action n>
+where <action1> <action2> ... n is to be replaced with the names of the actions; this command is flexible in that more actions can be added later as needed.
+Executing actions
+
+By default, rails is configured such that the url you type (or click on) in your browser determines what action gets aexecuted. For example, if you type in localhost:3000/sign_in/options, rails will run the code in the options method of the sign_in controller and then display the view in app\views\sign_in\options.html.erb. This convention allows you to easily predict which action gets executed and allows linking of pages. For example, if you link to "/sign_in/options" in your view, rails will run the aforemensioned method.
+I hope this was helpful and will make the sign-in page easier to implement.
