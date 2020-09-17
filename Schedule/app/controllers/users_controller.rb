@@ -2,7 +2,7 @@ require "base64"
 require "digest"
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
-
+  skip_before_action :verify_authenticity_token
   # GET /users
   # GET /users.json
   def index
@@ -71,6 +71,34 @@ class UsersController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  def login
+end
+  def fyp
+end
+  def verify
+    params.slice :username, :password
+    user_name = params[:username]
+    pass = params[:password]
+    #if we can't find the user, then display the error
+    user = User.find_by(username: user_name)
+    if user
+      if Base64.encode64(Digest::SHA256.digest(pass)) == user.password
+#remember who logged in
+session[:id] = user.id
+session[:name] = user.username
+        redirect_to "/users/success"
+else
+redirect_to "/users/error"
+end
+else
+redirect_to "/users/error"
+end
+end
+def success
+end
+def error
+end
 
   private
     # Use callbacks to share common setup or constraints between actions.
