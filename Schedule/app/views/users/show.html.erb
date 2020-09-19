@@ -9,6 +9,17 @@
   <strong>Password:</strong>
   <%= @user.password %>
 </p>
-
+<p>
+<strong>
+Security question:
+</strong>
+<%= @user.question %>
+</p>
+<p>
+<strong>
+Answer:
+</strong>
+<%= @user.answer %>
+</p>
 <%= link_to 'Edit', edit_user_path(@user) %> |
 <%= link_to 'Back', users_path %>
