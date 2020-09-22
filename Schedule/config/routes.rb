@@ -11,6 +11,6 @@ post "/users/check_answer"
 get "/users/password_reset"
 post "/users/password_update"
   resources :users
-  root 'users#new'
+  root 'users#login'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
