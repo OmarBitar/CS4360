@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_18_193100) do
+ActiveRecord::Schema.define(version: 2020_09_25_181311) do
 
   create_table "users", force: :cascade do |t|
     t.string "username"
@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(version: 2020_09_18_193100) do
     t.datetime "updated_at", precision: 6, null: false
     t.string "question", default: ""
     t.string "answer", default: "47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU=\n"
+    t.index ["username"], name: "index_users_on_username", unique: true
   end
 
 end
