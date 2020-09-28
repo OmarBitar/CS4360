@@ -9,8 +9,8 @@
 > Ruby on Rails
 
 Team:
+> Matt Sagawed  
 > Nicole Weickert  
-> James Thomas  
 > Victor Lazos-Aragon  
 > Justin Wu  
 > Omar Bitar
