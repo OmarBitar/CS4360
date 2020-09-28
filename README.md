@@ -13,3 +13,4 @@ Team:
 > James Thomas  
 > Victor Lazos-Aragon  
 > Justin Wu  
+> Omar Bitar
