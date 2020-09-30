@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  root 'roles#index'
+
   resources :shifts
   resources :coverage_rules
   resources :roles
