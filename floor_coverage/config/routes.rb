@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
-  resources :schedules
-  resources :coverage
+  root 'roles#index'
+
+  resources :shifts
+  resources :coverage_rules
   resources :roles
   resources :employees
   resources :users
