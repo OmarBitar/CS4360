@@ -1,2 +1,0 @@
-class CoverageRule < ApplicationRecord
-end
