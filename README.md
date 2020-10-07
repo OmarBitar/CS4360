@@ -1,4 +1,4 @@
-### CS 3710 - Technical Software Project
+### CS 4360 - Technical Software Project
 >Dr. Steve Beaty  
 >Fall 2020  
 >Metropolitan State University of Denver  
