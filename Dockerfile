@@ -25,12 +25,7 @@ COPY package.json .
 COPY yarn.lock .
 RUN yarn install --check-files
 
-RUN rails webpacker:install
-
-
-RUN bundle exec rails db:migrate
-RUN bundle exec rails assets:precompile
-RUN bundle exec puma -C config/puma.rb
+RUN rails webpacker:install 
 
 EXPOSE 3000
 
