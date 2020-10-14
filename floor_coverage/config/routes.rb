@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root 'roles#index'
+  root 'users#new'
 
   resources :schedules
   resources :coverage

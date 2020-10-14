@@ -25,5 +25,9 @@
   <%= @user.security_answer %>
 </p>
 
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>
+<%= link_to 'Edit', edit_user_path(@user) %>
+
+<p>
+  Next, set your roles! Click Roles to continue
+</p>
+<%= link_to 'Roles', roles_path %>
