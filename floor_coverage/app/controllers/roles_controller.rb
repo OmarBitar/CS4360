@@ -15,10 +15,12 @@ class RolesController < ApplicationController
   # GET /roles/new
   def new
     @role = Role.new
+    @employees = Employee.all
   end
 
   # GET /roles/1/edit
   def edit
+    @employees = Employee.all
   end
 
   # POST /roles
@@ -69,6 +71,7 @@ class RolesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def role_params
-      params.require(:role).permit(:name, :priority)
+      params.require(:role).permit(:name, :priority,:first_name, :last_name, :active, :availability, :employee_ids => [])
+
     end
 end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_05_223453) do
+ActiveRecord::Schema.define(version: 2020_10_16_180349) do
 
   create_table "coverage", force: :cascade do |t|
     t.datetime "created_at", precision: 6, null: false
@@ -24,6 +24,15 @@ ActiveRecord::Schema.define(version: 2020_10_05_223453) do
     t.string "availability"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "employees_roles", force: :cascade do |t|
+    t.integer "role_id", null: false
+    t.integer "employee_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["employee_id"], name: "index_employees_roles_on_employee_id"
+    t.index ["role_id"], name: "index_employees_roles_on_role_id"
   end
 
   create_table "roles", force: :cascade do |t|
@@ -48,4 +57,6 @@ ActiveRecord::Schema.define(version: 2020_10_05_223453) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  add_foreign_key "employees_roles", "employees"
+  add_foreign_key "employees_roles", "roles"
 end
