@@ -27,7 +27,8 @@
       <%= form.collection_check_boxes :employee_ids, @employees, :id, :first_name do |role| %>
         <li>
           <%= role.check_box %>
-          <%= role.label %>
+          <%= role.object.first_name %>
+          <%= role.object.last_name %>
         </li>
       <% end %>
     </ul>
