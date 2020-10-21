@@ -7,6 +7,8 @@ class PrealgorithmController < ApplicationController
         @failed_messages = []
         @days_of_the_week.each do |i|
             @store_employee_ids = []
+            @list_of_postions = []
+            @list_of_postions_number = []
             @number_of_employees = 0
             @number_of_needed_employees = 0
             @number_of_employees_at_postition = 0
@@ -17,6 +19,8 @@ class PrealgorithmController < ApplicationController
 
             @hour =0
             while @hour < 24
+                #@list_of_postions = ????.find_by_sql(SELECT postion FROM ???? WHERE hour < @hour +1, hour >= @hour)
+                #@list_of_postions_number =
                 if @number_of_employees < @number_of_needed_employees
                     @number_failed_messages +=1
                 elseif @number_of_employees_at_postition < @number_of_needed_employees_at_postition
