@@ -11,6 +11,9 @@ Rails.application.configure do
   # heroku fix
   config.hosts << ENV['POSTGRES_HOST']
 
+  # for devise Auth
+  config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
+
   # Do not eager load code on boot.
   config.eager_load = false
 

@@ -13,8 +13,11 @@
     <div id='container'>
       <div id='header'>
         Really Good Pizza              <!-- this needs to be a variable -->
+        <%= link_to 'Log out',destroy_user_session_path,method: :delete%>
       </div>
       <%= render "layouts/menu" %>
+      <p class="notice">test 1<%= notice %></p>
+      <p class="alert">test 2<%= alert %></p>
       <div id='yield'>
         <%= yield %>
       </div>
