@@ -13,6 +13,12 @@
     <div id='container'>
       <div id='header'>
         Really Good Pizza              <!-- this needs to be a variable -->
+        <div id='dropdown'>
+          <button id='dropbtn'>Dropdown</button>
+            <div id='dropdown-content'>
+              <button id="myBtn">Open Modal</button>
+            </div>
+        </div>
       </div>
       <%= render "layouts/menu" %>
       <div id='yield'>
@@ -20,4 +26,5 @@
       </div>
     </div>
   </body>
+  <%= render "layouts/modal" %>
 </html>
