@@ -7,6 +7,12 @@ ruby '2.7.1'
 gem 'rails', '~> 6.0.3', '>= 6.0.3.3'
 # Use sqlite3 for testing!!
 gem 'sqlite3', '~> 1.4'
+#Use fullCalendar
+gem 'fullcalendar-rails'
+#Use momentjs-rails
+gem 'momentjs-rails'
+#add jquery for fullcalendar
+gem 'jquery-rails'
 # Use Puma as the app server
 gem 'puma', '~> 4.1'
 # to read .env
