@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   root 'roles#index'
 
+  get "coverage", to: "coverage#index"
+
   resources :schedules
   resources :coverage
   resources :roles
