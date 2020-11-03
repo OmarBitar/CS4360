@@ -14,6 +14,8 @@
  *= require_self
  */
 
+
+
 body {
   background-color: #e5e5e5;
 }
@@ -22,9 +24,12 @@ div#container {
   border: 1px black solid;
   border-radius: 1.5rem;
   background-color: white;
-  width: 75%;
-  min-width: 400px;
-  max-width: 900px;
+  width: 95%;
+  min-width: 450px;
+/*
+I'm using pixels for min-width because I'm specifically considering old
+600x800 devices, not really aesthetics.
+*/ 
   margin: auto;
 }
 
@@ -33,7 +38,7 @@ div#header {
   background-color: #999999;
   color: #e2e2e2;
   text-align: right;
-  font-size: 120%;
+  font-size: 115%;
   padding: 0.5em;
   padding-right: 1em;
 }
