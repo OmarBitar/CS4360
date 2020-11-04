@@ -12,6 +12,8 @@
   <body>
     <div id='container'>
       <div id='header'>
+        <%= link_to image_tag("icons/circle_question.png", options={id: 'icon_question'}), "welcome" %>
+        <%#= image_tag("icons/circle_question.png", options={id: 'icon_question'}) %>
         Account Name             <!-- this needs to be a variable -->
       </div>
       <%= render "layouts/menu" %>
