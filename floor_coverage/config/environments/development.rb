@@ -6,6 +6,7 @@ Rails.application.configure do
   # since you don't have to restart the web server when you make code changes.
   config.cache_classes = false
 
+<<<<<<< HEAD:config/environments/development.rb
   # docker yarn fix
   config.webpacker.check_yarn_integrity = false
   # heroku fix
@@ -14,6 +15,8 @@ Rails.application.configure do
   # for devise Auth
   config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
 
+=======
+>>>>>>> parent of 57ea891... Heroku hosting (#12):floor_coverage/config/environments/development.rb
   # Do not eager load code on boot.
   config.eager_load = false
 

@@ -5,14 +5,17 @@ ruby '2.7.1'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 6.0.3', '>= 6.0.3.3'
+<<<<<<< HEAD:Gemfile
 # Use postgres as the database for Active Record
 gem 'pg'
 # To read .env files
 gem 'dotenv-rails'
 # Use devise for Auth
 gem 'devise'
+=======
+>>>>>>> parent of 57ea891... Heroku hosting (#12):floor_coverage/Gemfile
 # Use sqlite3 as the database for Active Record
-#gem 'sqlite3', '~> 1.4'
+gem 'sqlite3', '~> 1.4'
 # Use Puma as the app server
 gem 'puma', '~> 4.1'
 # Use SCSS for stylesheets
