@@ -2,6 +2,9 @@ Rails.application.routes.draw do
   devise_for :users
   root 'roles#index'
 
+  get "coverage", to: "coverage#index"
+  get "welcome", to: "users#welcome"
+
   resources :schedules
   resources :coverage
   resources :roles
