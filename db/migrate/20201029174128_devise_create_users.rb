@@ -18,8 +18,15 @@ class DeviseCreateUsers < ActiveRecord::Migration[6.0]
        t.integer  :sign_in_count, default: 0, null: false
        t.datetime :current_sign_in_at
        t.datetime :last_sign_in_at
-       t.inet     :current_sign_in_ip
-       t.inet     :last_sign_in_ip
+      # change to pg when hosting
+      # https://stackoverflow.com/questions/27849159/rake-is-aborting-because-undefined-method-inet-for-sqlite-db
+      # pg
+      # t.inet     :current_sign_in_ip
+      # t.inet     :last_sign_in_ip
+
+      # mysql
+      t.string     :current_sign_in_ip
+      t.string     :last_sign_in_ip
 
       # Confirmable
        t.string   :confirmation_token
