@@ -14,7 +14,7 @@
       <div id='header'> 
         <%= link_to image_tag("icons/circle_question.png", options={id: 'icon_question'}), "welcome" %>
         <%#= image_tag("icons/circle_question.png", options={id: 'icon_question'}) %>
-        Account Name             <!-- this needs to be a variable -->
+        <%= current_user ? current_user.company_name : nil %>
         <%= link_to 'Log out',destroy_user_session_path,method: :delete%>
       </div>
       <%= render "layouts/menu" %>
