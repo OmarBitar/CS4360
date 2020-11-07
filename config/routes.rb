@@ -9,6 +9,8 @@ Rails.application.routes.draw do
   get "coverage", to: "coverage#index"
   get "welcome", to: "users#welcome"
 
+  get "/users/edit", to: "users#edit"
+
   resources :schedules
   resources :coverage
   resources :roles

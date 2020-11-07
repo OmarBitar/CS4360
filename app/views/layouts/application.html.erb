@@ -12,10 +12,9 @@
   <body>
     <div id='container'>
       <div id='header'> 
-        <%= link_to image_tag("icons/circle_question.png", options={id: 'icon_question'}), "welcome" %>
-        <%#= image_tag("icons/circle_question.png", options={id: 'icon_question'}) %>
+        <%= link_to image_tag("icons/circle_question.png", options={id: 'icon'}), "welcome" %>
         <%= current_user ? current_user.company_name : nil %>
-        <%= link_to 'Log out',destroy_user_session_path,method: :delete%>
+        <%= current_user ? (link_to image_tag("icons/cogwheel.png", options={id: 'icon'}), users_edit_path(@user)) : 'Please Log In' %>
       </div>
       <%= render "layouts/menu" %>
       <p class="notice"><%= notice %></p>
