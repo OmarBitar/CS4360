@@ -4,7 +4,7 @@ class RolesController < ApplicationController
   # GET /roles
   # GET /roles.json
   def index
-    @roles = Role.all.sort_by {|obj| obj.priority}
+    @roles = Role.where("name LIKE ?", "%#{params[:search]}%").sort_by {|obj| obj.priority}
   end
 
   # GET /roles/1
