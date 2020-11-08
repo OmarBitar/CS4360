@@ -3,11 +3,9 @@ Rails.application.routes.draw do
       registrations: 'users/registrations'
   }
 
-  root 'welcome#index'
+  root :to => "welcome#index"
 
   get "coverage", to: "coverage#index"
-  get "welcome", to: "users#welcome"
-
   get "/users/edit", to: "users#edit"
 
   resources :schedules
