@@ -69,6 +69,6 @@ class CoverageController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def coverage_params
-      params.fetch(:coverage, {})
+      params.fetch(:coverage, {}).permit(:user_id)
     end
 end

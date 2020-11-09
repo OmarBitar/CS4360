@@ -40,14 +40,11 @@ div#header {
   text-align:right;
   padding: 0.5em;
   padding-right: 1em;
-}
+  min-height: 1em;
 
-img#icon {
-  height: 1.25em;
-  width: 1.25em;
-  float:left;
-  padding-left:1%;
-  filter: brightness(0) invert(1);
+  .icons {
+
+  }
 }
 
 div#menubar {                        // prevents whitespace between child divs
@@ -59,6 +56,7 @@ div#menubar {                        // prevents whitespace between child divs
     overflow: visible;
     text-align: center;
     background-color: #cccccc;
+
     &:hover {
       background-color: #a9a9a9;
     }
@@ -79,4 +77,48 @@ div#menubar {                        // prevents whitespace between child divs
 
 div#yield {
   padding:1em;
+}
+
+img {
+  &.icon {
+    height: 1.25em;
+    width: 1.25em;
+
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+
+  &#welcome {
+    float: left;
+    padding-left: 1%;
+    filter: brightness(0) invert(1);
+  }
+
+  &#options {
+    float:right;
+    padding-left: 1%;
+    filter: brightness(0) invert(1);
+  }
+}
+
+
+span#welcome {
+
+  h1 {
+    text-align: center;
+  }
+
+  div#button_to_roles {
+    text-align: center;
+  }
+
+  a {
+    font-weight: bold;
+    text-decoration:none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
 }
