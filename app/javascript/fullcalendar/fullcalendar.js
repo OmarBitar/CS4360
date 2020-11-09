@@ -80,7 +80,6 @@ document.addEventListener('turbolinks:load', function() {
 					var startampm = prompt('am or pm?');
 					if (startampm == 'pm') {
 						var time = (startTime + ' PM');
-						window.alert(startTime);
 						var hours = Number(time.match(/^(\d+)/)[1]);
 						var minutes = Number(time.match(/:(\d+)/)[1]);
 						var AMPM = time.match(/\s(.*)$/)[1].toLowerCase();
@@ -92,15 +91,13 @@ document.addEventListener('turbolinks:load', function() {
 						if (hours < 10) sHours = "0" + sHours;
 						if (minutes < 10) sMinutes = "0" + sMinutes;
 						var startTime = sHours + ':' + sMinutes
-						alert(startTime);
 					}
 					else {
 					}
 					var endTime = prompt('Enter an end time in hh:mm format');
 					var endampm = prompt('am or pm?');
 					if (endampm == 'pm') {
-						var etime = (endTime + ' PM');	// Credit to 
-						window.alert(endTime);
+						var etime = (endTime + ' PM');
 						var ehours = Number(etime.match(/^(\d+)/)[1]);
 						var eminutes = Number(etime.match(/:(\d+)/)[1]);
 						var eAMPM = etime.match(/\s(.*)$/)[1].toLowerCase();
@@ -112,7 +109,6 @@ document.addEventListener('turbolinks:load', function() {
 						if (ehours < 10) seHours = "0" + seHours;
 						if (eminutes < 10) seMinutes = "0" + seMinutes;
 						var endTime = seHours + ':' + seMinutes
-						alert(endTime);
 					}
 					var date = new Date(currentDate.getFullYear() + '-' + (currentDate.getMonth() +1) + '-' + dateStrDay + 'T' + startTime + ':00');
 					var end = new Date(currentDate.getFullYear() + '-' +  (currentDate.getMonth() +1) + '-' + dateStrDay + 'T' + endTime + ':00');
@@ -126,7 +122,8 @@ document.addEventListener('turbolinks:load', function() {
 							end: end
                         });
                         alert('Great. Now, update your database...');
-						var calendarArray = calendar.getEvents();
+						var calendarArray = calendar.getEvents(); // I can store 'shifts' or events here as an Array according to FullCalendar https://fullcalendar.io/docs/Calendar-getEvents
+																  // Now how do I send that array to the database?
                     } else {
                         alert('Invalid date.');
                     }
