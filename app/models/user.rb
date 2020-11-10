@@ -5,7 +5,12 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   validates :company_name, presence: true, length: { minimum: 2, maximum: 15 }
-  validate :password_requirements_are_met
+  #validate :password_requirements_are_met, :on => :create
+  validates :password_requirements_are_met, presence: true, if: :should_validate?
+
+  def should_validate?
+    new_record? || password.present?
+  end
 
   # password_requirement code is referenced
   # from: https://stackoverflow.com/a/50334086/11379938
