@@ -4,7 +4,7 @@ class CoverageController < ApplicationController
   # GET /coverage
   # GET /coverage.json
   def index
-    @coverage = Coverage.where(user_id: current_user.id)
+    @coverage = Coverage.foreign_key("user", current_user)
   end
 
   # GET /coverage/1

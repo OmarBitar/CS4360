@@ -4,7 +4,7 @@ class RolesController < ApplicationController
   # GET /roles
   # GET /roles.json
   def index
-    @roles = Role.where(user_id: current_user.id)
+    @roles = Role.foreign_key("user", current_user)
   end
 
   # GET /roles/1
