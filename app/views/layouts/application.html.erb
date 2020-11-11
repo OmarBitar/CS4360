@@ -11,12 +11,20 @@
 
   <body>
     <div id='container'>
-      <div id='header'> 
-        <%= link_to image_tag("icons/circle_question.png", options={id: 'icon'}), root_path %>
-        <%= current_user ? current_user.company_name : nil %>
-        <%= current_user ? (link_to image_tag("icons/cogwheel.png", options={id: 'icon'}), users_edit_path(@user)) : 'Please Log In' %>
-      </div>
-      <%= render "layouts/menu" %>
+
+      <% if current_user %>
+        <div id='header'>
+          <%= link_to current_user.company_name, users_edit_path(@user), {id: "username"} %>
+          <%= link_to image_tag("icons/circle_question.png", {class: 'icon', id: 'welcome'}), root_path %>
+          <%= link_to image_tag("icons/cogwheel.png", {class: 'icon', id: 'options'}), users_edit_path(@user) %>
+          <%= link_to "logout", destroy_user_session_path, method: :delete, method: :delete, id: "logout" %>
+        </div>
+
+        <div id='menubar'>
+          <%= render "layouts/menu" %>
+        </div>
+      <% end %>
+
       <p class="notice"><%= notice %></p>
       <p class="alert"><%= alert %></p>
       <div id='yield'>
