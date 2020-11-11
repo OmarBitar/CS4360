@@ -9,5 +9,10 @@ module Filter
     def foreign_key(key, value)
       self.where("#{key}_id": value.id)
     end
+
+    def by_user(user)
+      self.where(user_id: user.id)
+    end
+
   end
 end

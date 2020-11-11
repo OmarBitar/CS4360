@@ -4,7 +4,7 @@ class EmployeesController < ApplicationController
   # GET /employees
   # GET /employees.json
   def index
-    @employees = Employee.foreign_key("user", current_user)
+    @employees = Employee.by_user(current_user)
   end
 
   # GET /employees/1

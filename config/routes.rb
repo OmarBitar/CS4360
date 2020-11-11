@@ -10,6 +10,7 @@ Rails.application.routes.draw do
 
   resources :schedules
   resources :coverage
+  resources :coverage_rules
   resources :roles
   resources :employees
 
