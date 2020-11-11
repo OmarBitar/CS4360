@@ -15,8 +15,6 @@ ActiveRecord::Schema.define(version: 2020_11_07_180239) do
   create_table "coverage", force: :cascade do |t|
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "user_id"
-    t.index ["user_id"], name: "index_coverage_on_user_id"
   end
 
   create_table "employees", force: :cascade do |t|
@@ -26,8 +24,6 @@ ActiveRecord::Schema.define(version: 2020_11_07_180239) do
     t.string "availability"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "user_id"
-    t.index ["user_id"], name: "index_employees_on_user_id"
   end
 
   create_table "roles", force: :cascade do |t|
@@ -35,20 +31,15 @@ ActiveRecord::Schema.define(version: 2020_11_07_180239) do
     t.integer "priority"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "user_id"
-    t.index ["user_id"], name: "index_roles_on_user_id"
   end
 
   create_table "schedules", force: :cascade do |t|
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "user_id"
-    t.index ["user_id"], name: "index_schedules_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
-    t.string "company_name"
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
@@ -66,12 +57,9 @@ ActiveRecord::Schema.define(version: 2020_11_07_180239) do
     t.datetime "locked_at"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "company_name"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "coverage", "users"
-  add_foreign_key "employees", "users"
-  add_foreign_key "roles", "users"
-  add_foreign_key "schedules", "users"
 end
