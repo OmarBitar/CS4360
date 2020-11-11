@@ -11,39 +11,27 @@
     </div>
   <% end %>
 
-  <div class="inline field">
+  <%= form.hidden_field :user_id, :value => current_user.id %>
+
+  <div class="field">
     <%= form.label :first_name %>
     <%= form.text_field :first_name %>
   </div>
 
-  <div class="inline field">
+  <div class="field">
     <%= form.label :last_name %>
     <%= form.text_field :last_name %>
   </div>
 
   <div class="field">
-    <%= form.label :active, class: "inline" %>
-    <%= form.check_box :active, {checked: true} %>
+    <%= form.label :active %>
+    <%= form.check_box :active %>
   </div>
 
-
-  <%= form.label :availability %>
-
-  <table>
-    <tr>
-      <td></td>
-      <td>Start:</td>
-      <td>End:</td>
-    </tr>
-    <% days = %w[Sunday Monday Tuesday Wednesday Thursday Friday Saturday] %>
-    <% days.each do |day| %>
-      <tr>
-        <td><%= form.label "availability[#{day}]", day %></td>
-        <td><%= form.time_field  "availability[#{day}][start]" %></td>
-        <td><%= form.time_field  "availability[#{day}][end]" %></td>
-      </tr>
-    <% end %>
-  </table>
+  <div class="field">
+    <%= form.label :availability %>
+    <%= form.text_field :availability %>
+  </div>
 
   <div class="actions">
     <%= form.submit %>

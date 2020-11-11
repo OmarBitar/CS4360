@@ -25,11 +25,11 @@ div#container {
   background-color: white;
   width: 95%;
   min-width: 450px;
+  margin: auto;
 /*
 I'm using pixels for min-width because I'm specifically considering old
-600x800 devices, not really aesthetics.
-*/ 
-  margin: auto;
+600x800 devices, not aesthetics.
+*/
 }
 
 div#header {
@@ -37,17 +37,9 @@ div#header {
   background-color: #999999;
   color: #e2e2e2;
   font-size: 115%;
-  text-align:right;
   padding: 0.5em;
   padding-right: 1em;
-}
-
-img#icon_question {
-  height: 1.25em;
-  width: 1.25em;
-  float:left;
-  padding-left:1%;
-  filter: brightness(0) invert(1);
+  min-height: 1em;
 }
 
 div#menubar {                        // prevents whitespace between child divs
@@ -59,6 +51,7 @@ div#menubar {                        // prevents whitespace between child divs
     overflow: visible;
     text-align: center;
     background-color: #cccccc;
+
     &:hover {
       background-color: #a9a9a9;
     }
@@ -77,10 +70,55 @@ div#menubar {                        // prevents whitespace between child divs
   }
 }
 
-div#yield {
-  padding:1em;
+div#yield {padding:1em;}
+
+%message {
+  text-align: center;
+  font-weight: bold;
+  margin-top: 2em;
+  margin-bottom: -1em;
+  &:empty {display:none;}
 }
 
-.inline {
-  display: inline-block;
+.notice {
+  @extend %message;
+  color: green;
+}
+
+.alert {
+  @extend %message;
+  color: red;
+}
+
+img {
+  &.icon {
+    height: 1.25em;
+    width: 1.25em;
+    margin-left: 1%;
+    filter: brightness(0) invert(1);
+    &:hover {transform: scale(1.2);}
+
+    &#welcome {float: right;}
+    &#options {float: right;}
+  }
+}
+
+a#username {
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+  margin-left: 1.5em;
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+a#logout {
+    text-decoration: none;
+    color: #dddddd;
+    float: right;
+    &:hover {
+      color: white;
+      text-decoration: underline;
+    }
 }
