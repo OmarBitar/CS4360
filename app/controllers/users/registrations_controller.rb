@@ -27,6 +27,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # DELETE /resource
   def destroy
     super
+
   end
 
   # GET /resource/cancel
@@ -36,6 +37,8 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # removing all OAuth session data.
   def cancel
     super
+    logger.info 'test 1'
+    @logger.debug { "test 2" }
   end
 
   protected
