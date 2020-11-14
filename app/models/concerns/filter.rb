@@ -1,6 +1,8 @@
 module Filter
   extend ActiveSupport::Concern
 
+  $days = %w[Sunday Monday Tuesday Wednesday Thursday Friday Saturday]
+
   module ClassMethods
     def filter(key, value)
       self.where("#{key}": value)

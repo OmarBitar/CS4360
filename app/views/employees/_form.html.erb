@@ -1,4 +1,6 @@
 <%= form_with(model: employee, local: true) do |form| %>
+
+
   <% if employee.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(employee.errors.count, "error") %> prohibited this employee from being saved:</h2>
@@ -25,13 +27,26 @@
 
   <div class="field">
     <%= form.label :active %>
-    <%= form.check_box :active %>
+    <%= form.check_box :active, checked: true %>
   </div>
 
-  <div class="field">
-    <%= form.label :availability %>
-    <%= form.text_field :availability %>
-  </div>
+  <table>
+    <tr>
+      <th><%= form.label :availability %></th>
+    </tr>
+
+    <% @employee.availability.nil? ? time = "" : time = eval(@employee.availability) %>
+
+    <% $days.each do |day| %>
+      <% time.empty? ? start = "" : start = time[day]["start"] %>
+      <% time.empty? ? stop = "" : stop = time[day]["end"] %>
+      <tr>
+        <td><%= "#{day.camelcase}:" %></td>
+        <td><%= form.time_field "[times]#{day}[start]", value: start %></td>
+        <td><%= form.time_field "[times]#{day}[end]", value: stop %></td>
+      </tr>
+    <% end %>
+  </table>
 
   <div class="actions">
     <%= form.submit %>

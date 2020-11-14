@@ -13,10 +13,47 @@
   <%= @employee.active %>
 </p>
 
-<p>
-  <strong>Availability:</strong>
-  <%= @employee.availability %>
-</p>
+<% time = eval(@employee.availability) %>
+<table>
+  <tr>
+    <th>Availability</th>
+  </tr>
+  <% $days.each do |day| %>
+    <tr>
+      <td><%= "#{day.camelcase}:" %></td>
+      <td><%= time_field_tag("time[#{day}][start]", time[day]["start"], :disabled => true) %></td>
+      <td><%= time_field_tag("time[#{day}][end]", time[day]["end"], :disabled => true) %></td>
+
+
+<!--      <td><%#= time[day]["start"] %></td>-->
+<!--      <td><%#= time[day]["end"] %></td>-->
+<!--      <td><input type='time' readonly='readonly' value='18:00' /></td>-->
+    </tr>
+  <% end %>
+</table>
+
+<!--<table>-->
+<!--  <tr>-->
+<!--    <th><%#= form.label :availability %></th>-->
+<!--  </tr>-->
+
+  <%# @employee.availability.nil? ? time = "" : time = eval(@employee.availability) %>
+  <%#= time %>
+  <%# $days.each do |day| %>
+
+    <%# time.empty? ? start = "" : start = time[day]["start"] %>
+    <%# time.empty? ? stop = "" : stop = time[day]["end"] %>
+
+<!--    <tr>-->
+<!--      <td><%#= "#{day.camelcase}:" %></td>-->
+<!--      <td><%#= form.time_field "[times]#{day}[start]", value: start %></td>-->
+<!--      <td><%#= form.time_field "[times]#{day}[end]", value: stop %></td>-->
+<!--    </tr>-->
+  <%# end %>
+<!--</table>-->
+
+
+
 
 <%= link_to 'Edit', edit_employee_path(@employee) %> |
 <%= link_to 'Back', employees_path %>

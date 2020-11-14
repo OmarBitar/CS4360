@@ -70,7 +70,10 @@ div#menubar {                        // prevents whitespace between child divs
   }
 }
 
-div#yield {padding:1em;}
+div#yield {
+  padding:1em;
+  overflow: auto;
+}
 
 %message {
   text-align: center;
