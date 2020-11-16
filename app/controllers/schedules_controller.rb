@@ -4,7 +4,7 @@ class SchedulesController < ApplicationController
   # GET /schedules
   # GET /schedules.json
   def index
-    @schedules = Schedule.all
+    @schedules = Schedule.by_user(current_user)
   end
 
   # GET /schedules/1
@@ -69,6 +69,6 @@ class SchedulesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def schedule_params
-      params.fetch(:schedule, {})
+      params.fetch(:schedule, {}).permit(:user_id)
     end
 end

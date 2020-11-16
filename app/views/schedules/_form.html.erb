@@ -9,12 +9,11 @@
         <% end %>
       </ul>
     </div>
-
   <% end %>
-  <p1>
-    <div class="actions">
-      <%= form.submit %>
-    </div>
-  </p1>
 
+  <%= form.hidden_field :user_id, :value => current_user.id %>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
 <% end %>
