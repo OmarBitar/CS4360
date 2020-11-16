@@ -10,7 +10,16 @@
       </ul>
     </div>
   <% end %>
+  <div class="field">
+    <%= form.label :title %>
+    <%= form.text_field :title %>
+  </div>
 
+
+  <div class="field">
+    <%= form.label :allDay %>
+    <%= form.check_box :allDay, checked: false %>
+  </div>
   <div class="actions">
     <%= form.submit %>
   </div>

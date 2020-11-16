@@ -6,24 +6,30 @@ document.addEventListener('turbolinks:load', function() {
     var calendarEl = document.getElementById('calendar');
 
     var calendar = new Calendar(calendarEl, {
+        timeZone: 'UTC',
+        events: [
+            {
+                id: 'a',
+                title: 'my event',
+                start: '2018-09-01'
+            }
+        ],
         selectable: true,
         headerToolbar: { left: 'custom1',
             center: 'title'
         },
+
         dateClick: function(info) {
             alert('clicked ' + info.dateStr);
         },
-        select: function(info) {
-            alert('selected ' + info.startStr + ' to ' + info.endStr);
-        },
-        footerToolbar: {left: 'dayGridMonth,dayGridWeek, '
+        footerToolbar: {left: 'dayGridMonth,timeGridWeek,timeGridDay'
         },
         customButtons: {
             custom1: {
                 text: 'Add Shift',
                 click: function () {
-                    var shiftStr = prompt('Enter the name of your shift');
-                    var shiftName = new String(shiftStr + 'T00:00:00');
+                    var title = prompt('Enter the name of your shift');
+                    var shiftName = new String(shiftStr);
 
                     if (!isNaN(date.valueOf())) { // valid?
                         calendar.addEvent({
@@ -41,8 +47,8 @@ document.addEventListener('turbolinks:load', function() {
 
 
 
-        plugins: [ interactionPlugin,dayGridPlugin ],
-        initialView: 'dayGridWeek',
+        plugins: [ interactionPlugin,dayGridPlugin,timeGridPlugin ],
+        initialView: 'dayGridMonth',
 
 
 

@@ -1,4 +1,28 @@
 <p id="notice"><%= notice %></p>
+<p>
+  <strong>Shift title:</strong>
+  <%= @coverage.title %>
+</p>
+
+<p>
+  <strong>All Day?:</strong>
+  <%= @coverage.allDay %>
+</p>
+
+<%time = eval(@coverage.coverage_rules) %>
+<table>
+  <tr>
+    <th>Coverage Required</th>
+  </tr>
+  <% $days.each do |day| %>
+    <tr>
+      <td><%= "#{day.camelcase}:" %></td>
+      <td><%= time_field_tag("time[#{day}][start]", time[day]["start"], :disabled => true) %></td>
+      <td><%= time_field_tag("time[#{day}][end]", time[day]["end"], :disabled => true) %></td>
+
+    </tr>
+  <% end %>
+</table>
 
 <%= link_to 'Edit', edit_coverage_path(@coverage) %> |
 <%= link_to 'Back', coverage_index_path %>

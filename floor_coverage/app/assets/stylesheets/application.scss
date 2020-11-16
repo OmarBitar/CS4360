@@ -67,3 +67,20 @@ div#menubar {                        // prevents whitespace between child divs
 div#yield {
   padding:1em;
 }
+%message {
+  text-align: center;
+  font-weight: bold;
+  margin-top: 2em;
+  margin-bottom: -1em;
+  &:empty {display:none;}
+}
+
+.notice {
+  @extend %message;
+  color: green;
+}
+
+.alert {
+  @extend %message;
+  color: #ff0000;
+}

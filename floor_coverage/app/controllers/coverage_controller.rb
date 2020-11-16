@@ -24,8 +24,8 @@ class CoverageController < ApplicationController
   # POST /coverage
   # POST /coverage.json
   def create
-    @coverage = Coverage.new(coverage_params)
-
+    params[:coverage][:coverage_rules] = params[:coverage][:times].to_s
+    @coverage = Coverage.new()
     respond_to do |format|
       if @coverage.save
         format.html { redirect_to @coverage, notice: 'Coverage was successfully created.' }
@@ -40,6 +40,7 @@ class CoverageController < ApplicationController
   # PATCH/PUT /coverage/1
   # PATCH/PUT /coverage/1.json
   def update
+    params[:coverage][:coverage_rules] = params[:coverage][:times].to_s
     respond_to do |format|
       if @coverage.update(coverage_params)
         format.html { redirect_to @coverage, notice: 'Coverage was successfully updated.' }
