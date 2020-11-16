@@ -4,7 +4,7 @@ class RolesController < ApplicationController
   # GET /roles
   # GET /roles.json
   def index
-    @roles = Role.all
+    @roles = Role.by_user(current_user)
   end
 
   # GET /roles/1
@@ -69,6 +69,6 @@ class RolesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def role_params
-      params.require(:role).permit(:name, :priority)
+      params.require(:role).permit(:user_id, :name, :priority)
     end
 end
