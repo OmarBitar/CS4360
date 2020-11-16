@@ -5,7 +5,13 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   validates :name, presence: true, length: { minimum: 2, maximum: 15 }
-  #validate :password_requirements_are_met, :on => :create
+
+  has_many :coverage_rules, :dependent => :destroy
+  has_many :employees, :dependent => :destroy
+  has_many :roles, :dependent => :destroy
+  has_many :schedules, :dependent => :destroy
+
+  validates :name, presence: true, length: { minimum: 2, maximum: 15 }
   validates :password_requirements_are_met, presence: true, if: :should_validate?
 
   def should_validate?
