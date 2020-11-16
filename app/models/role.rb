@@ -3,4 +3,5 @@ class Role < ApplicationRecord
 
   validates :name, uniqueness: true, presence: true, length: { maximum: 15 }
   validates :priority, uniqueness: true, presence: true, numericality: { only_integer: true, :greater_than_or_equal_to => 1 }
+  include Filter
 end

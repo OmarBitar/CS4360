@@ -1,7 +1,31 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+User.create(email: 'user1@email.com', name: 'User 1', password: 'Pass1!')
+User.create(email: 'user2@email.com', name: 'User 2', password: 'Pass1!')
+User.create(email: 'user3@email.com', name: 'User 3', password: 'Pass1!')
+
+CoverageRule.create(user_id: 1)
+CoverageRule.create(user_id: 2)
+CoverageRule.create(user_id: 2)
+CoverageRule.create(user_id: 3)
+CoverageRule.create(user_id: 3)
+CoverageRule.create(user_id: 3)
+
+Employee.create(user_id: 1, first_name: "User 1 Employe")
+Employee.create(user_id: 2, first_name: "User 2 Employe")
+Employee.create(user_id: 2, first_name: "User 2 Employe")
+Employee.create(user_id: 3, first_name: "User 3 Employe")
+Employee.create(user_id: 3, first_name: "User 3 Employe")
+Employee.create(user_id: 3, first_name: "User 3 Employe")
+
+Role.create(user_id: 1, name: "User 1 Role")
+Role.create(user_id: 2, name: "User 2 Role")
+Role.create(user_id: 2, name: "User 2 Role")
+Role.create(user_id: 3, name: "User 3 Role")
+Role.create(user_id: 3, name: "User 3 Role")
+Role.create(user_id: 3, name: "User 3 Role")
+
+Schedule.create(user_id: 1)
+Schedule.create(user_id: 2)
+Schedule.create(user_id: 2)
+Schedule.create(user_id: 3)
+Schedule.create(user_id: 3)
+Schedule.create(user_id: 3)

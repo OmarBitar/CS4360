@@ -8,18 +8,18 @@ span#welcome {
     text-align: center;
   }
 
-  img.icon {
-    height: 1.25em;
-    width: 1.25em;
-  }
-
   a {
     font-weight: bold;
     text-decoration:none;
+
+    &:hover {
+      text-decoration: underline;
+    }
   }
 
-  a:hover {
-    text-decoration: underline;
+  img {
+    height: 1.25em;
+    width: 1.25em;
   }
 
 }
