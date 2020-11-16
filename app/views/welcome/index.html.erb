@@ -4,9 +4,13 @@
   <hr />
   <p>
     Since it's your first time here, let's briefly run through how to use this app.
-    If you ever want to read this page again, just click the
-    <%= image_tag("icons/circle_question.png", :class => "icon") %>
-    image in the top-left corner.
+    If you decide you'd like to make changes to your account, you can do so by clicking your username
+    or the cogwheel <%= image_tag("icons/cogwheel.png") %> on the header above.
+  </p>
+  <p>
+    If you want to read this page again, just click the
+    <%= image_tag("icons/circle_question.png") %>
+    image in the top-right corner.
   </p>
   <hr />
 
@@ -24,7 +28,7 @@
   <p>
     After your Roles are established, we'll need to know which Roles need to be covered on
     which days and by how many people.  You'll define these needs by creating
-    <%= link_to "Coverage Rules", coverage_path %>, so that's the next place we suggest you
+    <%= link_to "Coverage Rules", coverage_rules_path %>, so that's the next place we suggest you
     go after you've defined your Roles.
   </p>
 
