@@ -40,6 +40,7 @@ ActiveRecord::Schema.define(version: 2020_10_05_223453) do
 
   create_table "users", force: :cascade do |t|
 <<<<<<< HEAD
+<<<<<<< HEAD
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
@@ -57,11 +58,16 @@ ActiveRecord::Schema.define(version: 2020_10_05_223453) do
     t.string "unlock_token"
     t.datetime "locked_at"
 =======
+=======
+>>>>>>> parent of b9473cf... merge from master
     t.string "name"
     t.string "email"
     t.string "password_digest"
     t.string "security_question"
     t.string "security_answer"
+<<<<<<< HEAD
+>>>>>>> parent of b9473cf... merge from master
+=======
 >>>>>>> parent of b9473cf... merge from master
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
