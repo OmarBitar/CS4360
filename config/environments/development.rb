@@ -10,19 +10,6 @@ Rails.application.configure do
   config.webpacker.check_yarn_integrity = false
   # heroku fix
   config.hosts << ENV['POSTGRES_HOST']
-  # for password reset
-  config.action_mailer.smtp_settings = {
-      address: "smtp.gmail.com",
-      port: 587,
-      domain: "gmail.com",
-      authentication: "plain",
-      enable_starttls_auto: true,
-      user_name: ENV["GMAIL_USERNAME"],
-      password:ENV["GMAIL_PASSWORD"]
-  }
-
-  # for devise Auth
-  config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
 
   # Do not eager load code on boot.
   config.eager_load = false

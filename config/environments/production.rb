@@ -8,17 +8,6 @@ Rails.application.configure do
   config.webpacker.check_yarn_integrity = false
   # heroku fix
   config.hosts << ENV['POSTGRES_HOST']
-  config.action_mailer.smtp_settings = {
-      address: "smtp.gmail.com",
-      port: 587,
-      domain: "gmail.com",
-      authentication: "plain",
-      enable_starttls_auto: true,
-      user_name: ENV["GMAIL_USERNAME"],
-      password:ENV["GMAIL_PASSWORD"]
-  }
-  # doesn't have to be Heroku, but you get the idea.
-  config.action_mailer.default_url_options = { :host => 'floorvocerage.herokuapp.com' }
 
   # Eager load code on boot. This eager loads most of Rails and
   # your application in memory, allowing both threaded web servers
