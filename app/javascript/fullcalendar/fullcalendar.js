@@ -12,7 +12,8 @@ document.addEventListener('turbolinks:load', function() {
 		nowIndicator: true,
 		allDaySlot: false,
         headerToolbar: { left: 'custom1',
-            center: 'title'
+            center: 'title',
+			right: 'custom2'
         },
 	eventClick: function(info) {
 		var eventObj = info.event;
@@ -129,7 +130,14 @@ document.addEventListener('turbolinks:load', function() {
                     }
                 }
             },
+			custom2: {
+				text: 'Delete Shifts',
+				click: function () {
+					calendar.removeAllEvents();
+				}
+			}
         },
+		
 
 
 
