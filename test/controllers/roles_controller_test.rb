@@ -1,7 +1,12 @@
 require 'test_helper'
 
 class RolesControllerTest < ActionDispatch::IntegrationTest
+  include Devise::Test::IntegrationHelpers
+
   setup do
+    get '/users/sign_in'
+    sign_in users(:user_001)
+    post user_session_url
     @role = roles(:one)
   end
 
@@ -17,7 +22,7 @@ class RolesControllerTest < ActionDispatch::IntegrationTest
 
   test "should create role" do
     assert_difference('Role.count') do
-      post roles_url, params: { role: { name: @role.name, priority: @role.priority } }
+      post roles_url, params: { role: { user_id: @role.user_id, name: @role.name, priority: @role.priority } }
     end
 
     assert_redirected_to role_url(Role.last)

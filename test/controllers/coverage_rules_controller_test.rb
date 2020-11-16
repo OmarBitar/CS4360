@@ -1,7 +1,12 @@
 require 'test_helper'
 
 class CoverageRulesControllerTest < ActionDispatch::IntegrationTest
+  include Devise::Test::IntegrationHelpers
+
   setup do
+    get '/users/sign_in'
+    sign_in users(:user_001)
+    post user_session_url
     @coverage_rule = coverage_rules(:one)
   end
 

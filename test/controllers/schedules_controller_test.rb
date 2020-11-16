@@ -1,7 +1,12 @@
 require 'test_helper'
 
 class SchedulesControllerTest < ActionDispatch::IntegrationTest
+  include Devise::Test::IntegrationHelpers
+
   setup do
+    get '/users/sign_in'
+    sign_in users(:user_001)
+    post user_session_url
     @schedule = schedules(:one)
   end
 
@@ -17,7 +22,7 @@ class SchedulesControllerTest < ActionDispatch::IntegrationTest
 
   test "should create schedule" do
     assert_difference('Schedule.count') do
-      post schedules_url, params: { schedule: {  } }
+      post schedules_url, params: { schedule: { user_id: @schedule.user_id } }
     end
 
     assert_redirected_to schedule_url(Schedule.last)

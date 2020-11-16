@@ -1,7 +1,12 @@
 require 'test_helper'
 
 class EmployeesControllerTest < ActionDispatch::IntegrationTest
+  include Devise::Test::IntegrationHelpers
+
   setup do
+    get '/users/sign_in'
+    sign_in users(:user_001)
+    post user_session_url
     @employee = employees(:one)
   end
 
@@ -17,7 +22,7 @@ class EmployeesControllerTest < ActionDispatch::IntegrationTest
 
   test "should create employee" do
     assert_difference('Employee.count') do
-      post employees_url, params: { employee: { active: @employee.active, availability: @employee.availability, first_name: @employee.first_name, last_name: @employee.last_name } }
+      post employees_url, params: { employee: { user_id: @employee.user_id, active: @employee.active, availability: @employee.availability, first_name: @employee.first_name, last_name: @employee.last_name } }
     end
 
     assert_redirected_to employee_url(Employee.last)

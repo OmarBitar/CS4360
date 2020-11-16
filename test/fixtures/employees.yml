@@ -1,12 +1,14 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
+  user_id: 1
   first_name: MyString
   last_name: MyString
   active: false
   availability: MyString
 
 two:
+  user_id: 2
   first_name: MyString
   last_name: MyString
   active: false
