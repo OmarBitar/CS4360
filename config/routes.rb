@@ -4,12 +4,9 @@ Rails.application.routes.draw do
   }
 
   root "welcome#index"
-
-  get "coverage", to: "coverage#index"
   get "/users/edit", to: "users#edit"
 
   resources :schedules
-  resources :coverage
   resources :coverage_rules
   resources :roles
   resources :employees
