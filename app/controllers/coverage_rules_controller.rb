@@ -4,7 +4,6 @@ class CoverageRulesController < ApplicationController
   # GET /coverage_rules
   # GET /coverage_rules.json
   def index
-    # @coverage_rules = CoverageRule.by_user(current_user)
     @coverage_rules = CoverageRule.by_user(current_user)
   end
 
