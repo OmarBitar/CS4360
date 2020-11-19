@@ -4,7 +4,7 @@ class EmployeesController < ApplicationController
   # GET /employees
   # GET /employees.json
   def index
-    @employees = Employee.where("first_name LIKE ?", "%#{params[:search]}%")
+    @employees = Employee.user(current_user).search(params[:search])
   end
 
   # GET /employees/1
@@ -15,12 +15,12 @@ class EmployeesController < ApplicationController
   # GET /employees/new
   def new
     @employee = Employee.new
-    @roles = Role.all
+    @roles = Role.user(current_user)
   end
 
   # GET /employees/1/edit
   def edit
-    @roles = Role.all
+    @roles = Role.user(current_user)
   end
 
   # POST /employees

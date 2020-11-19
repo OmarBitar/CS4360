@@ -4,7 +4,7 @@ class RolesController < ApplicationController
   # GET /roles
   # GET /roles.json
   def index
-    @roles = Role.where("name LIKE ?", "%#{params[:search]}%").sort_by {|obj| obj.priority}
+    @roles = Role.user(current_user).order(:priority)
   end
 
   # GET /roles/1
@@ -15,12 +15,12 @@ class RolesController < ApplicationController
   # GET /roles/new
   def new
     @role = Role.new
-    @employees = Employee.all
+    @employees = Employee.user(current_user)
   end
 
   # GET /roles/1/edit
   def edit
-    @employees = Employee.all
+    @employees = Employee.user(current_user)
   end
 
   # POST /roles

@@ -10,8 +10,19 @@ module Filter
       self.where("#{key}_id": value.id)
     end
 
-    def by_user(user)
+    def user(user)
       self.where(user_id: user.id)
+    end
+
+    def search(search)
+      columns = self.column_names
+      @return = self.where(
+          columns
+              .map {|c| "#{c} like :search" }
+              .join(' OR '),
+          search: "%#{search}%"
+      )
+      @return
     end
 
   end

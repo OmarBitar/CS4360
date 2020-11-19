@@ -1,36 +1,31 @@
 <h1>Employees</h1>
 
 <%= form_tag employees_path, :method => 'get' do %>
-  <%= label_tag(:query, "Search by Employees Name: ") %>
+  <%= label_tag(:query, "Search by Employee Name: ") %>
   <%= text_field_tag :search, params[:search] %>
   <%= submit_tag "search" %>
 <% end %>
+
+<br />
 
 <table>
   <thead>
     <tr>
       <th>First name</th>
       <th>Last name</th>
-      <th>Active</th>
-      <th>Availability</th>
     </tr>
   </thead>
 
   <tbody>
     <% @employees.each do |employee| %>
       <tr>
-        <td><%= employee.first_name %></td>
-        <td><%= employee.last_name %></td>
-        <td><%= employee.active %></td>
-        <td><%= employee.availability %></td>
-        <td><%= link_to 'Show', employee %></td>
-        <td><%= link_to 'Edit', edit_employee_path(employee) %></td>
-        <td><%= link_to 'Destroy', employee, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to employee.first_name, employee %></td>
+        <td><%= link_to employee.last_name, employee %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
-<br>
+<br />
 
 <%= link_to 'New Employee', new_employee_path %>
