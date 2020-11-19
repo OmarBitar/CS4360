@@ -27,6 +27,7 @@ class RolesController < ApplicationController
   # POST /roles.json
   def create
     @role = Role.new(role_params)
+    @employees = Employee.user(current_user)
 
     respond_to do |format|
       if @role.save
