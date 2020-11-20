@@ -4,7 +4,7 @@ class RolesController < ApplicationController
   # GET /roles
   # GET /roles.json
   def index
-    @roles = Role.by_user(current_user)
+    @roles = Role.user(current_user).order(:priority)
   end
 
   # GET /roles/1
@@ -15,16 +15,19 @@ class RolesController < ApplicationController
   # GET /roles/new
   def new
     @role = Role.new
+    @employees = Employee.user(current_user)
   end
 
   # GET /roles/1/edit
   def edit
+    @employees = Employee.user(current_user)
   end
 
   # POST /roles
   # POST /roles.json
   def create
     @role = Role.new(role_params)
+    @employees = Employee.user(current_user)
 
     respond_to do |format|
       if @role.save
@@ -69,6 +72,7 @@ class RolesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def role_params
-      params.require(:role).permit(:user_id, :name, :priority)
+      params.require(:role).permit(:user_id ,:name, :priority,:first_name, :last_name, :active, :availability, :employee_ids => [])
+
     end
 end

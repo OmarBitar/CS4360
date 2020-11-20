@@ -8,5 +8,15 @@
   <%= @role.priority %>
 </p>
 
+<p>
+  <strong>Employees:</strong>
+  <ul>
+    <% @role.employees.each do |employee| %>
+      <li><%= employee.first_name %> <%= employee.last_name %></li>
+    <% end %>
+  </ul>
+</p>
+
 <%= link_to 'Edit', edit_role_path(@role) %> |
+<%= link_to 'Delete', @role, method: :delete, data: { confirm: 'Are you sure?' } %> |
 <%= link_to 'Back', roles_path %>

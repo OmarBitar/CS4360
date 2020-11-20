@@ -18,5 +18,15 @@
   <%= @employee.availability %>
 </p>
 
+<p>
+  <strong>Positions:</strong>
+  <ul>
+    <% @employee.roles.each do |role| %>
+      <li><%= role.name %></li>
+    <% end %>
+  </ul>
+</p>
+
 <%= link_to 'Edit', edit_employee_path(@employee) %> |
+<%= link_to 'Delete', @employee, method: :delete, data: { confirm: 'Are you sure?' } %> |
 <%= link_to 'Back', employees_path %>
