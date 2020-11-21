@@ -26,12 +26,14 @@ class EmployeesController < ApplicationController
   # POST /employees
   # POST /employees.json
   def create
+    params[:employee][:availability] = params[:employee][:times].to_s
     @employee = Employee.new(employee_params)
     @roles = Role.user(current_user)
 
     respond_to do |format|
       if @employee.save
-        format.html { redirect_to @employee, notice: 'Employee was successfully created.' }
+        format.html { redirect_to @employee, notice: params[:employee][:availability] }
+        # format.html { redirect_to @employee, notice: 'Employee was successfully created.' }
         format.json { render :show, status: :created, location: @employee }
       else
         format.html { render :new }
@@ -43,6 +45,7 @@ class EmployeesController < ApplicationController
   # PATCH/PUT /employees/1
   # PATCH/PUT /employees/1.json
   def update
+    params[:employee][:availability] = params[:employee][:times].to_s
     respond_to do |format|
       if @employee.update(employee_params)
         format.html { redirect_to @employee, notice: 'Employee was successfully updated.' }
