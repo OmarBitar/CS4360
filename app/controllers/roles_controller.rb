@@ -4,7 +4,7 @@ class RolesController < ApplicationController
   # GET /roles
   # GET /roles.json
   def index
-    @roles = Role.user(current_user).order(:priority)
+    @roles = Role.user(current_user).order(:priority).search(params[:search])
   end
 
   # GET /roles/1
@@ -16,6 +16,8 @@ class RolesController < ApplicationController
   def new
     @role = Role.new
     @employees = Employee.user(current_user)
+    @roles = Role.user(current_user)
+    @next_priority = @roles.length == 0 ? 1 : @roles.maximum(:priority) + 1
   end
 
   # GET /roles/1/edit

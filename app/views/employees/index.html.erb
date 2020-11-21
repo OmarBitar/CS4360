@@ -1,12 +1,5 @@
 <h1>Employees</h1>
-
-<%= form_tag employees_path, :method => 'get' do %>
-  <%= label_tag(:query, "Search by Employee Name: ") %>
-  <%= text_field_tag :search, params[:search] %>
-  <%= submit_tag "search" %>
-<% end %>
-
-<br />
+<%= render 'layouts/searchbar' %>
 
 <table>
   <thead>

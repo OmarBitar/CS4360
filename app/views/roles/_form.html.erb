@@ -20,11 +20,14 @@
 
   <div class="field">
     <%= form.label :priority %>
+    <% @role.priority.nil? ? @role.priority = @next_priority : '' %>
     <%= form.number_field :priority %>
   </div>
 
+  <br />
+
   <div class="field">
-    <%= form.label :employee_id %>
+    <h3><%= form.label :employee_id, "Assign Employees" %></h3>
     <ul>
       <%= form.collection_check_boxes :employee_ids, @employees, :id, :first_name do |role| %>
         <li>
@@ -35,8 +38,6 @@
       <% end %>
     </ul>
   </div>
-
-
 
   <div class="actions">
     <%= form.submit %>

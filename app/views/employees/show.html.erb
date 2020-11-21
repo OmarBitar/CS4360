@@ -1,32 +1,21 @@
-<p>
-  <strong>First name:</strong>
-  <%= @employee.first_name %>
-</p>
+<% time = eval(@employee.availability) %>
 
-<p>
-  <strong>Last name:</strong>
-  <%= @employee.last_name %>
-</p>
+<table>
+  <tr>
+    <th>Availability</th>
+  </tr>
 
-<p>
-  <strong>Active:</strong>
-  <%= @employee.active %>
-</p>
-
-<p>
-  <strong>Availability:</strong>
-  <%= @employee.availability %>
-</p>
-
-<p>
-  <strong>Positions:</strong>
-  <ul>
-    <% @employee.roles.each do |role| %>
-      <li><%= role.name %></li>
-    <% end %>
-  </ul>
-</p>
+  <!-- $days variable location: models/concerns/filter.rb -->
+  <% $days.each do |day| %>
+    <tr>
+      <td><%= "#{day.camelcase}:" %></td>
+      <td><%= time_field_tag("time[#{day}][start]", time[day]["start"], :disabled => true) %></td>
+      <td><%= time_field_tag("time[#{day}][end]", time[day]["end"], :disabled => true) %></td>
+    </tr>
+  <% end %>
+</table>
 
 <%= link_to 'Edit', edit_employee_path(@employee) %> |
 <%= link_to 'Delete', @employee, method: :delete, data: { confirm: 'Are you sure?' } %> |
-<%= link_to 'Back', employees_path %>
+<%= link_to 'Back', employees_path %> |
+<%= link_to 'Add New Employee', new_employee_path %>
