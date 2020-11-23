@@ -4,7 +4,7 @@ class EmployeesController < ApplicationController
   # GET /employees
   # GET /employees.json
   def index
-    @employees = Employee.user(current_user).search(params[:search])
+    @employees = Employee.by_user(current_user)
   end
 
   # GET /employees/1
@@ -15,20 +15,16 @@ class EmployeesController < ApplicationController
   # GET /employees/new
   def new
     @employee = Employee.new
-    @roles = Role.user(current_user)
   end
 
   # GET /employees/1/edit
   def edit
-    @roles = Role.user(current_user)
   end
 
   # POST /employees
   # POST /employees.json
   def create
-    params[:employee][:availability] = params[:employee][:times].to_s
     @employee = Employee.new(employee_params)
-    @roles = Role.user(current_user)
 
     respond_to do |format|
       if @employee.save
@@ -44,7 +40,6 @@ class EmployeesController < ApplicationController
   # PATCH/PUT /employees/1
   # PATCH/PUT /employees/1.json
   def update
-    params[:employee][:availability] = params[:employee][:times].to_s
     respond_to do |format|
       if @employee.update(employee_params)
         format.html { redirect_to @employee, notice: 'Employee was successfully updated.' }
@@ -74,7 +69,6 @@ class EmployeesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def employee_params
-      params.require(:employee).permit(:user_id, :first_name, :last_name, :active, :availability, :name, :priority, :role_ids => [])
-
+      params.require(:employee).permit(:user_id, :first_name, :last_name, :active, :availability)
     end
 end

@@ -4,7 +4,7 @@ class SchedulesController < ApplicationController
   # GET /schedules
   # GET /schedules.json
   def index
-    @schedules = Schedule.user(current_user)
+    @schedules = Schedule.by_user(current_user)
   end
 
   # GET /schedules/1

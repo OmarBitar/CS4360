@@ -1,8 +1,6 @@
 module Filter
   extend ActiveSupport::Concern
 
-  $days = %w[Sunday Monday Tuesday Wednesday Thursday Friday Saturday]
-
   module ClassMethods
     def filter(key, value)
       self.where("#{key}": value)
@@ -12,19 +10,8 @@ module Filter
       self.where("#{key}_id": value.id)
     end
 
-    def user(user)
+    def by_user(user)
       self.where(user_id: user.id)
-    end
-
-    def search(search)
-      columns = self.column_names
-      @return = self.where(
-          columns
-              .map {|c| "#{c} like :search" }
-              .join(' OR '),
-          search: "%#{search}%"
-      )
-      @return
     end
 
   end
