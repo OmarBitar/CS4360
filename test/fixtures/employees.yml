@@ -1,5 +1,6 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
+#FIX availibility. Not able to test employee properly
 one:
   user_id: 1
   first_name: MyString
