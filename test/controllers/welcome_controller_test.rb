@@ -17,17 +17,17 @@ class WelcomeControllerTest < ActionDispatch::IntegrationTest
   #View tests
   test "should be coverage rules link" do
     get root_url
-    assert_select "a", {count: 2, text: "Coverage Rules"}, "Needs to contains link to coverage page"
+    assert_select "span a", {count: 1, text: "Coverage Rules"}, "Needs to contains link to coverage page"
   end
 
   test "should be employees link" do
     get root_url
-    assert_select "a", {count: 2, text: "Employees"}, "Needs to contains link to employees page"
+    assert_select "span a", {count: 1, text: "Employees"}, "Needs to contains link to employees page"
   end
 
   test "should be schedules link" do
     get root_url
-    assert_select "a", {count: 1, text: "Schedule"}, "Needs to contains link to schedules page"
+    assert_select "span a", {count: 1, text: "Schedule"}, "Needs to contains link to schedules page"
   end
 
   test "should be roles button" do
