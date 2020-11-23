@@ -17,6 +17,11 @@ class RegistrationsControllerTest < ActionDispatch::IntegrationTest
         assert_response :success
     end
 
+    test "Forgot Password" do
+        get "/users/password/new"
+        assert_response :success
+    end
+
     #Views test
     test "Email field" do
         get "/users/sign_in"
@@ -31,6 +36,11 @@ class RegistrationsControllerTest < ActionDispatch::IntegrationTest
     test "Sign up link" do
         get "/users/sign_in"
         assert_select "a", {count: 1, text: "Sign up"}
+    end
+
+    test "Forgot your password? link" do
+        get "/users/sign_in"
+        assert_select "a", {count: 1, text: "Forgot your password?"}
     end
 
 end
