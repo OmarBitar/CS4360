@@ -69,6 +69,11 @@ div#menubar {                        // prevents whitespace between child divs
   }
 }
 
+div#yield {
+  padding:1em;
+  overflow: auto;
+}
+
 div#yield {padding:1em;}
 
 %message {
