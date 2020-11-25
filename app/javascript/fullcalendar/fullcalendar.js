@@ -6,11 +6,11 @@ import { get,push } from '../api_ajax'
 document.addEventListener('turbolinks:load', function() {
     var calendarEl = document.getElementById('calendar');
 
-	var test = get('roles');
-	//console.log(test);
-	push('roles',{ user_id: 1, name: "Yehuda", priority: 1 });
-
-
+    //Template for pushing and get data
+	//var fetched_items = get('roles');
+	//console.log(fetched_items);
+	//push('roles',{ name: "Yehuda", priority: 1 });
+	
     var calendar = new Calendar(calendarEl, {
         selectable: true,
 		selectHelper: true,

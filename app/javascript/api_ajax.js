@@ -13,6 +13,7 @@ export function get(which) {
 }
 
 export function push(which,data) {
+    data.user_id = gon.user_id;
     jQuery.ajax({
         type: 'POST',
         url: "/" + which,
