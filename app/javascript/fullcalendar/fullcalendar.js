@@ -35,7 +35,8 @@ document.addEventListener('turbolinks:load', function() {
 			info.jsEvent.preventDefault(); // prevents browser from following link in current tab.
 			} 
 			else {
-				var addRoles = window.confirm('Would you like to add roles to this shift?');
+				var addRoles = window.confirm('The user id is ' + gon.user_id);
+				// var addRoles = window.confirm('Would you like to add roles to this shift?');
 			}
 	},
         select: function(info) {
