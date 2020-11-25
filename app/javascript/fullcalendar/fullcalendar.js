@@ -2,8 +2,14 @@ import { Calendar } from "@fullcalendar/core";
 import dayGridPlugin from "@fullcalendar/daygrid";
 import interactionPlugin from '@fullcalendar/interaction'; // for selectable
 import timeGridPlugin from '@fullcalendar/timegrid';
+import { get,push } from '../api_ajax'
 document.addEventListener('turbolinks:load', function() {
     var calendarEl = document.getElementById('calendar');
+
+	var test = get('roles');
+	//console.log(test);
+	push('roles',{ user_id: 1, name: "Yehuda", priority: 1 });
+
 
     var calendar = new Calendar(calendarEl, {
         selectable: true,
@@ -125,6 +131,7 @@ document.addEventListener('turbolinks:load', function() {
                         alert('Great. Now, update your database...');
 						var calendarArray = calendar.getEvents(); // I can store 'shifts' or events here as an Array according to FullCalendar https://fullcalendar.io/docs/Calendar-getEvents
 																  // Now how do I send that array to the database?
+
                     } else {
                         alert('Invalid date.');
                     }
