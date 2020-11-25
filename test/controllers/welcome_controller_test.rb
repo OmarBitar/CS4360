@@ -15,11 +15,12 @@ class WelcomeControllerTest < ActionDispatch::IntegrationTest
   end
 
   #View tests
+=begin
   test "should be coverage rules link" do
     get root_url
     assert_select "span a", {count: 1, text: "Coverage Rules"}, "Needs to contains link to coverage page"
   end
-
+=end
   test "should be employees link" do
     get root_url
     assert_select "span a", {count: 1, text: "Employees"}, "Needs to contains link to employees page"
