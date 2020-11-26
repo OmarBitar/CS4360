@@ -24,7 +24,7 @@
     <%= form.text_field :last_name %>
   </div>
 
-  <div class="field">
+  <div class="field hidden">
     <%= form.label :active %>
     <%= form.check_box :active, checked: true %>
   </div>
@@ -34,7 +34,7 @@
       <th><%= form.label :availability %></th>
     </tr>
 
-    <% @employee.availability.nil? ? time = "" : time = eval(@employee.availability) %>
+    <% time = @employee.availability.nil? ? "" : eval(@employee.availability) %>
 
     <% $days.each do |day| %>
       <% time.empty? ? start = "" : start = time[day]["start"] %>

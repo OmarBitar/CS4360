@@ -18,7 +18,7 @@
     <%= form.text_field :name %>
   </div>
 
-  <div class="field">
+  <div class="field hidden">
     <%= form.label :priority %>
     <% @role.priority.nil? ? @role.priority = @next_priority : '' %>
     <%= form.number_field :priority %>

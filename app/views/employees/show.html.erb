@@ -1,19 +1,38 @@
-<% time = eval(@employee.availability) %>
+<% name = "#{@employee.first_name} #{@employee.last_name}" unless @employee.blank? %>
+<% time = eval(@employee.availability) unless @employee.availability.nil? %>
+
+<h1><%= name %></h1>
+
+
+<p>
+  <strong>Roles</strong>
+<ul>
+  <% @employee.roles.each do |role| %>
+    <li><%= role.name %></li>
+  <% end %>
+</ul>
+</p>
 
 <table>
   <tr>
     <th>Availability</th>
   </tr>
 
-  <!-- $days variable location: models/concerns/filter.rb -->
+<!--   $days variable location: models/concerns/filter.rb -->
   <% $days.each do |day| %>
+
+    <% start_ = time[day]["start"] unless time.blank? %>
+    <% end_ = time[day]["end"] unless time.blank? %>
+
     <tr>
       <td><%= "#{day.camelcase}:" %></td>
-      <td><%= time_field_tag("time[#{day}][start]", time[day]["start"], :disabled => true) %></td>
-      <td><%= time_field_tag("time[#{day}][end]", time[day]["end"], :disabled => true) %></td>
+      <td><%= time_field_tag("time[#{day}][start]", start_, :disabled => true) %></td>
+      <td><%= time_field_tag("time[#{day}][end]", end_, :disabled => true) %></td>
     </tr>
   <% end %>
 </table>
+
+<br />
 
 <%= link_to 'Edit', edit_employee_path(@employee) %> |
 <%= link_to 'Delete', @employee, method: :delete, data: { confirm: 'Are you sure?' } %> |
