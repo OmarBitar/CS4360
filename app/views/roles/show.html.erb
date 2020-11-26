@@ -4,11 +4,6 @@
 </p>
 
 <p>
-  <strong>Priority:</strong>
-  <%= @role.priority %>
-</p>
-
-<p>
   <strong>Employees:</strong>
   <ul>
     <% @role.employees.each do |employee| %>
@@ -17,7 +12,9 @@
   </ul>
 </p>
 
+<% delete_warning = "Are you sure?   Any shifts associated with this role will remain, but will have no role listed." %>
+
 <%= link_to 'Edit', edit_role_path(@role) %> |
-<%= link_to 'Delete', @role, method: :delete, data: { confirm: 'Are you sure?' } %> |
+<%= link_to 'Delete', @role, method: :delete, data: { confirm: delete_warning } %> |
 <%= link_to 'Back to Roles', roles_path %> |
 <%= link_to 'Add New Role', new_role_path %>

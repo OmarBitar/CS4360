@@ -4,7 +4,6 @@
 <table>
   <thead>
     <tr>
-      <th>Priority</th>
       <th>Name</th>
     </tr>
   </thead>
@@ -12,7 +11,6 @@
   <tbody>
     <% @roles.each do |role| %>
       <tr>
-        <td><%= role.priority %></td>
         <td><%= link_to role.name, role %></td>
       </tr>
     <% end %>
