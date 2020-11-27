@@ -1,45 +1,36 @@
 <span id='welcome'>
+  <hr />
   <h1>Welcome!</h1>
-
   <hr />
-  <p>
-    Since it's your first time here, let's briefly run through how to use this app.
-    If you decide you'd like to make changes to your account, you can do so by clicking your username
-    or the cogwheel <%= image_tag("icons/cogwheel.png") %> on the header above.
-  </p>
-  <p>
-    If you want to read this page again, just click the
-    <%= image_tag("icons/circle_question.png") %>
-    image in the top-right corner.
-  </p>
-  <hr />
-
 
   <p>
     The very first thing we recommend is setting up your "Roles".
-    Your Roles tell us all of the responsibilities that will need to be covered.
-    We can't write any coverage rules without at least one Role.
+    Your Roles are all of the responsibilities that will need to be covered.
+    At least one Role is required before a shift can be created.
     <div id=button_to_roles>
-      <%= button_to "Take me to Roles!", roles_path, :method => "get" %>
+      <%= button_to "Take me to Roles!", roles_path, method: "get" %>
     </div>
   </p>
 
-
   <p>
-    After your Roles are established, we'll need to know which Roles need to be covered on
-    which days and by how many people.  You'll define these needs by creating
-    <%= link_to "Coverage Rules", coverage_rules_path %>, so that's the next place we suggest you
-    go after you've defined your Roles.
-  </p>
-
-  <p>
-    After that's done, you can let us know about the <%= link_to "Employees", employees_path %> you have.
+    When that's done, you can let us know about the <%= link_to "Employees", employees_path %> you have.
     If you've already created your Roles, you will be able to let us know which Roles they're
     able to perform in this same step.
   </p>
 
   <p>
-    Once you've let us know your Roles, Coverage Rules, and Employees, the last step is to have us help you
-    generate a <%= link_to "Schedule", schedules_path %>.
+    Once you've let us know your Roles and Employees, the last step is to start working on your
+    <%= link_to "Shifts", shifts_path %>.
+  </p>
+
+  <p>
+    If you decide you'd like to make changes to your account, you can do so by clicking your username
+    or the cogwheel <%= image_tag("icons/cogwheel.png") %> on the header above.
+  </p>
+
+  <p>
+    If you want to read this page again, just click the
+    <%= image_tag("icons/circle_question.png") %>
+    image in the top-right corner.
   </p>
 </span>

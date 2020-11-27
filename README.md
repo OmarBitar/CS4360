@@ -9,7 +9,7 @@
 > Ruby on Rails
 
 Team:
-> Matt Sagawed  
+> Matt Sawaged  
 > Nicole Weickert  
 > Victor Lazos-Aragon  
 > Justin Wu  

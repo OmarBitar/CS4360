@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  devise_for :users, controllers: { 
+  devise_for :users, controllers: {
       registrations: 'users/registrations'
   }
   root "welcome#index"
@@ -9,4 +9,5 @@ Rails.application.routes.draw do
   resources :coverage_rules
   resources :roles
   resources :employees
+  resources :shifts
 end
