@@ -5,6 +5,7 @@ class RolesController < ApplicationController
   # GET /roles.json
   def index
     @roles = Role.user(current_user).order(:priority).search(params[:search])
+    gon.user_id = @current_user.id
   end
 
   # GET /roles/1

@@ -6,6 +6,7 @@ class ShiftsController < ApplicationController
   def index
     @shifts = Shift.user(current_user)
     @roles = Role.user(current_user)
+    gon.user_id = @current_user.id
   end
 
   # GET /shifts/1
@@ -49,7 +50,7 @@ class ShiftsController < ApplicationController
     @roles = Role.user(current_user)
     respond_to do |format|
       if @shift.update(shift_params)
-        format.html { redirect_to @shift, notice: 'Shift was successfully updated.' }
+        format.html { redirect_to shifts_path, notice: 'Shift was successfully updated.' }
         format.json { render :show, status: :ok, location: @shift }
       else
         format.html { render :edit }
