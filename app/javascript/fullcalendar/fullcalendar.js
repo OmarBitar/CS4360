@@ -7,8 +7,8 @@ document.addEventListener('turbolinks:load', function() {
     var calendarEl = document.getElementById('calendar');
 
     //Template for pushing and get data
-	//var fetched_items = get('roles');
-	//console.log(fetched_items);
+	var fetched_items = get('roles');
+	console.log(fetched_items);
 	//push('roles',{ name: "Yehuda", priority: 1 });
 	
     var calendar = new Calendar(calendarEl, {
@@ -21,6 +21,7 @@ document.addEventListener('turbolinks:load', function() {
             center: 'title',
 			right: 'custom2'
         },
+	
 	eventClick: function(info) {
 		var eventObj = info.event;
 
@@ -58,12 +59,16 @@ document.addEventListener('turbolinks:load', function() {
 						var sdateStart = info.start;
 						var sdateEnd = info.end;
 						calendar.addEvent({
+							id: sshiftName,
 							allDay: false,
 							editable: true,
 							title: sshiftName,
 							start: sdateStart,
 							end: sdateEnd
 						});
+						var scurrentEvent = calendar.getEventById(sshiftName);
+						console.log(scurrentEvent);
+						push('shifts',{ date: scurrentEvent.start, start: scurrentEvent.start, end: scurrentEvent.end, employee: 1, role: 2 });
 					}
 					else {
 					}
@@ -120,18 +125,18 @@ document.addEventListener('turbolinks:load', function() {
 					}
 					var date = new Date(currentDate.getFullYear() + '-' + (currentDate.getMonth() +1) + '-' + dateStrDay + 'T' + startTime + ':00');
 					var end = new Date(currentDate.getFullYear() + '-' +  (currentDate.getMonth() +1) + '-' + dateStrDay + 'T' + endTime + ':00');
-
-                    if (!isNaN(date.valueOf())) { // valid?
+								
+                    if (!isNaN(date.valueOf())) { // valid start time
                         calendar.addEvent({
+							id: shiftName,
 							allDay: false,
 							editable: true,
                             title: shiftName,
 							start: date,
 							end: end
                         });
-                        alert('Great. Now, update your database...');
-						var calendarArray = calendar.getEvents(); // I can store 'shifts' or events here as an Array according to FullCalendar https://fullcalendar.io/docs/Calendar-getEvents
-																  // Now how do I send that array to the database?
+						var currentEvent = calendar.getEventById(shiftName);
+						push('shifts',{ date: currentEvent.start, start: currentEvent.start, end: currentEvent.end, employee: 1, role: 2 });
 
                     } else {
                         alert('Invalid date.');
