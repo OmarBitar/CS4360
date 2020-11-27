@@ -4,7 +4,8 @@ class CoverageRulesController < ApplicationController
   # GET /coverage_rules
   # GET /coverage_rules.json
   def index
-    @coverage_rules = CoverageRule.user(current_user)
+    @coverage_rules = CoverageRule.user(current_user)  
+    gon.user_id = @current_user.id
   end
 
   # GET /coverage_rules/1
