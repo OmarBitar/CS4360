@@ -5,6 +5,7 @@ class EmployeesController < ApplicationController
   # GET /employees.json
   def index
     @employees = Employee.user(current_user).search(params[:search])
+    gon.user_id = @current_user.id
   end
 
   # GET /employees/1
