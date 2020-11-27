@@ -20,6 +20,7 @@ export function push(which,data) {
         dataType: 'json',
         contentType: 'application/json',
         data: JSON.stringify(data),
+        beforeSend: function(xhr) {xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))},
         success: function(json) { }
     }).fail(function(json){ alert(JSON.stringify(json.responseJSON)); });
 }
