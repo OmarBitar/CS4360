@@ -21,8 +21,7 @@ COPY Gemfile .
 COPY Gemfile.lock . 
 RUN bundle install  
 
-COPY package.json .
-COPY yarn.lock .
+COPY package.json . 
 RUN yarn install --check-files
 
 RUN rails webpacker:install 
