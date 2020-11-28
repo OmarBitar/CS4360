@@ -7,8 +7,14 @@ class ShiftsController < ApplicationController
     @shifts = Shift.user(current_user)
     @roles = Role.user(current_user)
     gon.user_id = @current_user.id
-    @filtered_shifts = @shifts.joins(:role).select
-    gon.shifts = @filtered_shifts
+
+    gon.events = @shifts.joins(:employee, :role).each_with_object([]) do |shift, event|
+      event << {
+        title:  "#{shift.employee.first_name} #{shift.employee.last_name}, #{shift.role.name}",
+        start:  datetime(shift.date, shift.start),
+        end:    datetime(shift.date, shift.end)
+      }
+    end
   end
 
   # GET /shifts/1

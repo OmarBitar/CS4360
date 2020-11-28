@@ -9,22 +9,12 @@ document.addEventListener('turbolinks:load', function() {
 
     var calendar = new Calendar(calendarEl, {
         schedulerLicenseKey: 'CC-Attribution-NonCommercial-NoDerivatives',
+
         plugins: [ interactionPlugin, resourceCommonPlugin, resourceTimeGridPlugin],
+        timeZone: 'UTC',
         selectable: true,
         editable: true,
-        events: [
-            {
-                title: 'An Event',
-                start: '2020-11-27T07:00',
-                end: '2020-11-27T17:00'
-            },
-            {
-                title: 'Another Event',
-                start: '2020-11-27T09:00',
-                end: '2020-11-27T19:00'
-            }
-        ]
+        events: gon.events,
     });
-
     calendar.render();
 });

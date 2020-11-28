@@ -1,20 +1,5 @@
 <h1>Shifts</h1>
 
-
-filtered shifts in ruby:<br/><br/>
-<% @filtered_shifts.each do |f| %>
-  <%= f.attributes %><br/><br/>
-<% end %>
-<br />
-<br />
-
-filtered shifts in js:<br/>
-<p id='write1'></p>
-<p id='write2'></p>
-<br />
-<br />
-
-
 <table>
   <thead>
   <tr>
@@ -31,7 +16,7 @@ filtered shifts in js:<br/>
   <% @shifts.each do |shift| %>
     <tr>
       <!--    Time formats: https://ruby-doc.org/stdlib-2.6.1/libdoc/date/rdoc/DateTime.html#method-i-strftime-->
-      <td><%= shift.start.strftime("%-m/%-d") unless shift.start.nil? %></td>
+      <td><%= shift.date.strftime("%-m/%-d") unless shift.start.nil? %></td>
       <td><%= shift.start.strftime("%_I:%M %p") unless shift.start.nil? %></td>
       <td><%= shift.end.strftime("%_I:%M %p") unless shift.end.nil? %></td>
       <td><%= "#{shift.employee.first_name} #{shift.employee.last_name}" unless shift.employee.nil? %></td>
