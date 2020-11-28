@@ -2,6 +2,9 @@ require 'test_helper'
 
 class ShiftsControllerTest < ActionDispatch::IntegrationTest
   setup do
+    get '/users/sign_in'
+    sign_in users(:user_001)
+    post user_session_url
     @shift = shifts(:one)
   end
 
@@ -17,7 +20,7 @@ class ShiftsControllerTest < ActionDispatch::IntegrationTest
 
   test "should create shift" do
     assert_difference('Shift.count') do
-      post shifts_url, params: { shift: { date: @shift.date, employee_id: @shift.employee_id, end: @shift.end, role_id: @shift.role_id, start: @shift.start } }
+      post shifts_url, params: { shift: { user_id: @shift.user_id, date: @shift.date, employee_id: @shift.employee_id, end: @shift.end, role_id: @shift.role_id, start: @shift.start } }
     end
 
     assert_redirected_to shift_url(Shift.last)
@@ -34,7 +37,7 @@ class ShiftsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update shift" do
-    patch shift_url(@shift), params: { shift: { date: @shift.date, employee_id: @shift.employee_id, end: @shift.end, role_id: @shift.role_id, start: @shift.start } }
+    patch shift_url(@shift), params: { shift: { user_id: @shift.user_id, date: @shift.date, employee_id: @shift.employee_id, end: @shift.end, role_id: @shift.role_id, start: @shift.start } }
     assert_redirected_to shift_url(@shift)
   end
 
