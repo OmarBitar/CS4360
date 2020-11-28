@@ -49,6 +49,7 @@ db/seeds.rb
 /yarn-error.log
 yarn-debug.log*
 .yarn-integrity
+yarn.lock
 
 
 .idea

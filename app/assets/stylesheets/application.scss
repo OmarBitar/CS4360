@@ -19,6 +19,10 @@ body {
   text-align:left;
 }
 
+.hidden {
+  display: none;
+}
+
 div#container {
   border: 1px black solid;
   border-radius: 1.5rem;
@@ -75,8 +79,6 @@ div#yield {
   overflow: auto;
 }
 
-div#yield {padding:1em;}
-
 %message {
   text-align: center;
   font-weight: bold;
@@ -108,14 +110,12 @@ img {
   }
 }
 
-a#username {
+#username {
   text-decoration: none;
   color: white;
   font-weight: bold;
   margin-left: 1.5em;
-  &:hover {
-    text-decoration: underline;
-  }
+  font-size: 115%;
 }
 
 a#logout {

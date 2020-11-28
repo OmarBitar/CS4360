@@ -7,7 +7,8 @@ class User < ApplicationRecord
   has_many :coverage_rules, :dependent => :destroy
   has_many :employees, :dependent => :destroy
   has_many :roles, :dependent => :destroy
-  has_many :Schedules, :dependent => :destroy
+  has_many :schedules, :dependent => :destroy
+  has_many :shifts, :dependent => :destroy
 
   validates :name, presence: true, length: { minimum: 2, maximum: 15 }
   validates :password_requirements_are_met, presence: true, if: :should_validate?
