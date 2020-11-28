@@ -9,10 +9,12 @@ class ShiftsController < ApplicationController
     gon.user_id = @current_user.id
 
     gon.events = @shifts.joins(:employee, :role).each_with_object([]) do |shift, event|
+      _title = shift.title.empty? ? "" : "_ #{shift.title} _ "
+      _title += "#{shift.employee.first_name} #{shift.employee.last_name}, #{shift.role.name}"
       event << {
-        title:  "#{shift.employee.first_name} #{shift.employee.last_name}, #{shift.role.name}",
+        title:  "#{_title}",
         start:  datetime(shift.date, shift.start),
-        end:    datetime(shift.date, shift.end)
+        end:    datetime(shift.date, shift.end),
       }
     end
   end

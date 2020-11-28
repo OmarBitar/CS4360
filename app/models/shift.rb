@@ -7,7 +7,4 @@ class Shift < ApplicationRecord
 
   validates_presence_of :start, :end, :employee_id, :role_id
 
-  def to_event()
-
-  end
 end
