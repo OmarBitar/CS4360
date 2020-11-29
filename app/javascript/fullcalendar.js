@@ -30,11 +30,14 @@ document.addEventListener('turbolinks:load', function() {
 
     var calendar = new Calendar(calendarEl, {
         plugins: [ timeGridPlugin, dayGridPlugin, interactionPlugin ],
-        timeZone: false,
         events: gon.events,
+        timeZone: false,
         selectable: true,
+        selectMirror: true,
+        selectMinDistance: 1,
         editable: true,
         allDaySlot: false,
+        displayEventTime: false,
         headerToolbar: {
             start:'prev',
             center:'title',
@@ -42,18 +45,15 @@ document.addEventListener('turbolinks:load', function() {
         },
         footerToolbar: {
             start: 'custom1',
-            end: 'custom2',
         },
 
         select: function(selectionInfo) {
+            sessionStorage.setItem("newShift", true);
             sessionStorage.setItem("date", format(selectionInfo.start, "date"));
             sessionStorage.setItem("start", format(selectionInfo.start, "time"));
             sessionStorage.setItem("end", format(selectionInfo.end, "time"));
-            window.open(gon.new_shift_path, "_self");
+            window.open(gon.new_shift, "_self");
         },
-
-        // eventClick: function(info) {
-        // },
 
         customButtons: {
             custom1: {
@@ -72,4 +72,6 @@ document.addEventListener('turbolinks:load', function() {
     });
 
     calendar.render();
+    console.log(calendar.events());
+    // console.log(calendar.getEventById(10));
 });

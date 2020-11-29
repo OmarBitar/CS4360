@@ -7,7 +7,7 @@ class ShiftsController < ApplicationController
     @shifts = Shift.user(current_user)
     @roles = Role.user(current_user)
     gon.user_id = @current_user.id
-    gon.new_shift_path = new_shift_path
+    gon.new_shift = new_shift_path
 
     gon.events = @shifts.joins(:employee, :role).each_with_object([]) do |shift, event|
       _title = shift.title.empty? ? "" : "_ #{shift.title} _ "
@@ -16,6 +16,8 @@ class ShiftsController < ApplicationController
         title:  "#{_title}",
         start:  datetime(shift.date, shift.start),
         end:    datetime(shift.date, shift.end),
+        id:     shift.id,
+        url:    edit_shift_path(shift.id),
       }
     end
   end
