@@ -2,8 +2,8 @@ import { Calendar} from '@fullcalendar/core';
 
 import interactionPlugin from '@fullcalendar/interaction';
 import timeGridPlugin from "@fullcalendar/timegrid";
-import dayGridPlugin from "@fullcalendar/daygrid";
 
+// takes a time object and returns a string of HH:MM or YYYY-MM-DD
 function format (time, type) {
     switch(type) {
         case "time":
@@ -29,7 +29,7 @@ document.addEventListener('turbolinks:load', function() {
     var calendarEl = document.getElementById('calendar');
 
     var calendar = new Calendar(calendarEl, {
-        plugins: [ timeGridPlugin, dayGridPlugin, interactionPlugin ],
+        plugins: [ timeGridPlugin, interactionPlugin ],
         events: gon.events,
         timeZone: false,
         selectable: true,
@@ -47,7 +47,9 @@ document.addEventListener('turbolinks:load', function() {
             start: 'custom1',
         },
 
+        // Passes the formatted start and end times to the new shifts form
         select: function(selectionInfo) {
+            // newShift tells the form to override the default values
             sessionStorage.setItem("newShift", true);
             sessionStorage.setItem("date", format(selectionInfo.start, "date"));
             sessionStorage.setItem("start", format(selectionInfo.start, "time"));
@@ -62,16 +64,8 @@ document.addEventListener('turbolinks:load', function() {
                     window.open(gon.new_shift_path,"_self");
                 },
             },
-            // custom2: {
-            //     text: 'Delete Shifts',
-            //     click: function () {
-            //         calendar.removeAllEvents();
-            //     }
-            // }
         },
     });
 
     calendar.render();
-    console.log(calendar.events());
-    // console.log(calendar.getEventById(10));
 });

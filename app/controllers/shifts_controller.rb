@@ -10,7 +10,7 @@ class ShiftsController < ApplicationController
     gon.new_shift = new_shift_path
 
     gon.events = @shifts.joins(:employee, :role).each_with_object([]) do |shift, event|
-      _title = shift.title.empty? ? "" : "_ #{shift.title} _ "
+      _title = shift.title.empty? ? "" : "#{shift.title}:  "
       _title += "#{shift.employee.first_name} #{shift.employee.last_name}, #{shift.role.name}"
       event << {
         title:  "#{_title}",
