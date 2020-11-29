@@ -40,11 +40,6 @@
     </div>
 
     <div class="field">
-      <%= form.label :title %>
-      <%= form.text_field :title %>
-    </div>
-
-    <div class="field">
       <%= form.label :start %>
       <%= form.time_field :start %>
     </div>
@@ -52,6 +47,11 @@
     <div class="field">
       <%= form.label :end %>
       <%= form.time_field :end %>
+    </div>
+
+    <div class="field">
+      <%= form.label :title %>
+      <%= form.text_field :title %>
     </div>
 
     <div class="field">
@@ -71,3 +71,10 @@
     </div>
   <% end %>
 <% end %>
+
+<script>
+  // document.getElementById('shift_date').value = "2020-11-26";
+  document.getElementById('shift_date').value = sessionStorage.getItem("date");
+  document.getElementById('shift_start').value = sessionStorage.getItem("start");
+  document.getElementById('shift_end').value = sessionStorage.getItem("end");
+</script>

@@ -1,20 +1,75 @@
 import { Calendar} from '@fullcalendar/core';
 
 import interactionPlugin from '@fullcalendar/interaction';
-import resourceCommonPlugin from '@fullcalendar/resource-common';
-import resourceTimeGridPlugin from '@fullcalendar/resource-timegrid';
+import timeGridPlugin from "@fullcalendar/timegrid";
+import dayGridPlugin from "@fullcalendar/daygrid";
+
+function format (time, type) {
+    switch(type) {
+        case "time":
+            var hours, minutes;
+            hours = time.getUTCHours();
+            minutes = time.getUTCMinutes();
+            if (hours < 10) hours = "0" + hours;
+            if (minutes < 10) minutes = "0" + minutes;
+            return hours + ":" + minutes;
+
+        case "date":
+            var year, month, day;
+            year = time.getUTCFullYear();
+            month = time.getUTCMonth() + 1;
+            day = time.getUTCDate();
+            if (month < 10) month = "0" + month;
+            if (day < 10) day = "0" + day;
+            return year + "-" + month + "-" + day;
+    }
+}
 
 document.addEventListener('turbolinks:load', function() {
     var calendarEl = document.getElementById('calendar');
 
     var calendar = new Calendar(calendarEl, {
-        schedulerLicenseKey: 'CC-Attribution-NonCommercial-NoDerivatives',
-
-        plugins: [ interactionPlugin, resourceCommonPlugin, resourceTimeGridPlugin],
-        timeZone: 'UTC',
+        plugins: [ timeGridPlugin, dayGridPlugin, interactionPlugin ],
+        timeZone: false,
+        events: gon.events,
         selectable: true,
         editable: true,
-        events: gon.events,
+        allDaySlot: false,
+        headerToolbar: {
+            start:'prev',
+            center:'title',
+            end:'next',
+        },
+        footerToolbar: {
+            start: 'custom1',
+            end: 'custom2',
+        },
+
+        select: function(selectionInfo) {
+            sessionStorage.setItem("date", format(selectionInfo.start, "date"));
+            sessionStorage.setItem("start", format(selectionInfo.start, "time"));
+            sessionStorage.setItem("end", format(selectionInfo.end, "time"));
+            window.open(gon.new_shift_path, "_self");
+        },
+
+        // eventClick: function(info) {
+        // },
+
+        customButtons: {
+            custom1: {
+                text: 'Add Shift',
+                click: function () {
+                    window.open(gon.new_shift_path,"_self");
+                },
+            },
+            // custom2: {
+            //     text: 'Delete Shifts',
+            //     click: function () {
+            //         calendar.removeAllEvents();
+            //     }
+            // }
+        },
     });
+
     calendar.render();
 });
