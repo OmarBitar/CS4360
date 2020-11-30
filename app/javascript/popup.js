@@ -1,8 +1,10 @@
-document.addEventListener('turbolinks:load', function() {
-
+window.onload = function() {
     var popup = document.getElementById('shift_form');
     var overlay = document.getElementById('overlay');
-    var button = document.getElementById('button');
+
+    overlay.addEventListener("click", togglePopup);
+    document.addEventListener("keydown", togglePopup);
+
 
     function togglePopup() {
         popup.classList.toggle("hidden");
@@ -13,9 +15,4 @@ document.addEventListener('turbolinks:load', function() {
         popup.classList.add("hidden");
         overlay.classList.add("hidden");
     }
-
-    button.addEventListener("click", togglePopup);
-    overlay.addEventListener("click", closePopup);
-    document.addEventListener("keydown", closePopup);
-
-});
+}

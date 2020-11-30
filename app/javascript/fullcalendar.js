@@ -1,5 +1,4 @@
 import { Calendar} from '@fullcalendar/core';
-
 import interactionPlugin from '@fullcalendar/interaction';
 import timeGridPlugin from "@fullcalendar/timegrid";
 
@@ -35,7 +34,7 @@ document.addEventListener('turbolinks:load', function() {
         selectable: true,
         selectMirror: true,
         selectMinDistance: 1,
-        editable: true,
+        // editable: true,
         allDaySlot: false,
         displayEventTime: false,
         headerToolbar: {
@@ -60,12 +59,12 @@ document.addEventListener('turbolinks:load', function() {
         customButtons: {
             custom1: {
                 text: 'Add Shift',
-                click: function () {
-                    window.open(gon.new_shift_path,"_self");
-                },
+                click: function (){
+                    document.getElementById('shift_form').classList.remove("hidden");
+                    document.getElementById('overlay').classList.remove("hidden");
+                }
             },
         },
     });
-
     calendar.render();
 });
