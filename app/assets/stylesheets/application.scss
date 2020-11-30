@@ -101,12 +101,14 @@ img {
   &.icon {
     height: 1.25em;
     width: 1.25em;
-    margin-left: 1%;
-    filter: brightness(0) invert(1);
+    vertical-align: middle;
     &:hover {transform: scale(1.2);}
 
-    &#welcome {float: right;}
-    &#options {float: right;}
+    &#welcome, &#options {
+      margin-left: 1%;
+      filter: brightness(0) invert(1);
+      float: right;
+    }
   }
 }
 
@@ -119,11 +121,11 @@ img {
 }
 
 a#logout {
-    text-decoration: none;
-    color: #dddddd;
-    float: right;
-    &:hover {
-      color: white;
-      text-decoration: underline;
-    }
+  text-decoration: none;
+  color: #dddddd;
+  float: right;
+  &:hover {
+    color: white;
+    text-decoration: underline;
+  }
 }

@@ -12,7 +12,7 @@
   </ul>
 </p>
 
-<% delete_warning = "Are you sure?   Any shifts associated with this role will remain, but will have no role listed." %>
+<% delete_warning = "Are you sure?\n\nAny shifts associated with this role will be removed." %>
 
 <%= link_to 'Edit', edit_role_path(@role) %> |
 <%= link_to 'Delete', @role, method: :delete, data: { confirm: delete_warning } %> |
