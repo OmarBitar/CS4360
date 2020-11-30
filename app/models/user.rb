@@ -12,6 +12,7 @@ class User < ApplicationRecord
 
   validates :name, presence: true, length: { minimum: 2, maximum: 15 }
   validates :password_requirements_are_met, presence: true, if: :should_validate?
+  validates :name, uniqueness: true
 
   def should_validate?
     new_record? || password.present?
