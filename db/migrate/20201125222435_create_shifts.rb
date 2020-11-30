@@ -2,6 +2,7 @@ class CreateShifts < ActiveRecord::Migration[6.0]
   def change
     create_table :shifts do |t|
       t.references :user, null: false, foreign_key: true
+      t.string :title
       t.date :date
       t.time :start
       t.time :end
