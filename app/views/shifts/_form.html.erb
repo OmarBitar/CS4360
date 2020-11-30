@@ -50,6 +50,11 @@
     </div>
 
     <div class="field">
+      <%= form.label :title %>
+      <%= form.text_field :title %>
+    </div>
+
+    <div class="field">
       <%= form.label :employee %>
       <%= form.select :employee_id, @employees.map {|e| ["#{e.first_name} #{e.last_name}", e.id]}, {prompt: "Select"} unless @employees.nil? %>
     </div>
@@ -66,3 +71,18 @@
     </div>
   <% end %>
 <% end %>
+<br />
+
+<script>
+  if (sessionStorage.getItem("newShift")) {
+
+      document.getElementById('shift_date').value = sessionStorage.getItem("date");
+      document.getElementById('shift_start').value = sessionStorage.getItem("start");
+      document.getElementById('shift_end').value = sessionStorage.getItem("end");
+
+      sessionStorage.removeItem("newShift");
+      sessionStorage.removeItem("date");
+      sessionStorage.removeItem("start");
+      sessionStorage.removeItem("end");
+  }
+</script>

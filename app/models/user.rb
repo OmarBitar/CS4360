@@ -4,11 +4,11 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  has_many :coverage_rules, :dependent => :destroy
-  has_many :employees, :dependent => :destroy
-  has_many :roles, :dependent => :destroy
-  has_many :schedules, :dependent => :destroy
-  has_many :shifts, :dependent => :destroy
+  has_many :coverage_rules, dependent: :destroy
+  has_many :employees, dependent: :destroy
+  has_many :roles, dependent: :destroy
+  has_many :schedules, dependent: :destroy
+  has_many :shifts, dependent: :destroy
 
   validates :company_name, presence: true, length: { minimum: 2, maximum: 15 }
   validates :password_requirements_are_met, presence: true, if: :should_validate?

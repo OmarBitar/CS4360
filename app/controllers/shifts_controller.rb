@@ -7,6 +7,19 @@ class ShiftsController < ApplicationController
     @shifts = Shift.user(current_user)
     @roles = Role.user(current_user)
     gon.user_id = @current_user.id
+    gon.new_shift = new_shift_path
+
+    gon.events = @shifts.joins(:employee, :role).each_with_object([]) do |shift, event|
+      _title = shift.title.empty? ? "" : "#{shift.title}:  "
+      _title += "#{shift.employee.first_name} #{shift.employee.last_name}, #{shift.role.name}"
+      event << {
+        title:  "#{_title}",
+        start:  datetime(shift.date, shift.start),
+        end:    datetime(shift.date, shift.end),
+        id:     shift.id,
+        url:    edit_shift_path(shift.id),
+      }
+    end
   end
 
   # GET /shifts/1
@@ -77,6 +90,6 @@ class ShiftsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def shift_params
-      params.require(:shift).permit(:user_id, :date, :start, :end, :employee_id, :role_id)
+      params.require(:shift).permit(:user_id, :title, :date, :start, :end, :employee_id, :role_id)
     end
 end
