@@ -34,7 +34,7 @@
 
 <br />
 
-<% delete_warning = "Are you sure?\n\nAny shifts associated with this employee will be deleted." %>
+<% delete_warning = "Are you sure?\n\nAny shifts associated with this employee will be removed." %>
 
 <%= link_to 'Edit', edit_employee_path(@employee) %> |
 <%= link_to 'Delete', @employee, method: :delete, data: { confirm: delete_warning } %> |

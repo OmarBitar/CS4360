@@ -28,7 +28,6 @@ document.addEventListener('turbolinks:load', function() {
         // Passes the formatted start and end times to the new shifts form
         select: function(selection) {
             if (selection.start.getUTCDate() === (selection.end.getUTCDate())) {
-                // newShift tells the form to override the default values
                 sessionStorage.setItem("newShift", true);
                 sessionStorage.setItem("date", format(selection.start, "date"));
                 sessionStorage.setItem("start", format(selection.start, "time"));
