@@ -5,11 +5,9 @@
 
 <p>
   <strong>Employees:</strong>
-  <ul>
     <% @role.employees.each do |employee| %>
-      <li><%= employee.first_name %> <%= employee.last_name %></li>
+      <%= employee.first_name %> <%= employee.last_name %><br/>
     <% end %>
-  </ul>
 </p>
 
 <% delete_warning = "Are you sure?\n\nAny shifts associated with this role will be removed." %>
