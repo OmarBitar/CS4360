@@ -1,0 +1,17 @@
+span#login {
+
+  div#login-left {
+    display: inline-block;
+    float: left;
+    width: 24%;
+  }
+  div#login-right {
+    display: inline-block;
+    float: left;
+    width: 75%;
+  }
+
+  input, label {
+    display: inline-block;
+  }
+}
