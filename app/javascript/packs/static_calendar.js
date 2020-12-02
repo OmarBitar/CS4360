@@ -6,7 +6,7 @@ document.addEventListener('turbolinks:load', function() {
 
     let static_calendar = new Calendar(static_calendarEl, {
         plugins: [ timeGridPlugin ],
-        events: "",
+        events: gon.static_events,
         timeZone: false,
         initialView: 'timeGridWeek',
         allDaySlot: false,
@@ -18,5 +18,5 @@ document.addEventListener('turbolinks:load', function() {
         },
     });
     static_calendar.render();
-    console.log('foobar');
 });
+console.log(gon.static_events);
