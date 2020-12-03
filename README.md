@@ -1,5 +1,6 @@
 # Floor Coverage
-> A web application for managers to generate schedules with an emphasis on allocating employee skills efficiently  
+> A web application for managers to create and modify work schedules.
+Includes a "View Only" mode for employees with the calendar code to view the schedule without needing user credentials.
 
 [Ruby on Rails](http://rubyonrails.org/) is what powers the [Floor Coverage](https://floorcoverage.herokuapp.com/) website. 
 
@@ -51,10 +52,6 @@ This software was initially created for CS 4360 - Technical Software Project MSU
 >Dr. Steve Beaty  
 >Fall 2020  
 >Metropolitan State University of Denver  
-
-### Floor Coverage
-> A web application for managers to create and modify work schedules.
-Includes a "View Only" mode for employees with the calendar code to view the schedule without needing user credentials.
 
 > Ruby on Rails
 
