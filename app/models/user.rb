@@ -10,7 +10,7 @@ class User < ApplicationRecord
   has_many :schedules, dependent: :destroy
   has_many :shifts, dependent: :destroy
 
-  validates :company_name, presence: true, length: { minimum: 2, maximum: 15 }
+  validates :name, presence: true, length: { minimum: 2, maximum: 15 }
   validates :password_requirements_are_met, presence: true, if: :should_validate?
 
   def should_validate?
