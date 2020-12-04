@@ -25,7 +25,7 @@ All of that work is done in [production](https://github.com/nweicker/CS4360/tree
 
 # License
 
-This software will have a FOSS License but currently pending approval from MSU Denver.
+This software is licensed under the [GNU General Public License 3.0](https://www.gnu.org/licenses/gpl-3.0.txt), a copy of which can be found in the [LICENSE](LICENSE.md) file.
 This software utilizes the [FullCalendar](https://fullcalendar.io/) javascript code that is licensed under 
  [MIT License](https://github.com/fullcalendar/fullcalendar/blob/master/LICENSE.txt).
 
